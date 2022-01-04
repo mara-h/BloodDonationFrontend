@@ -12,6 +12,11 @@
     <string name="select_blood_group">Select blood group</string>
     <string name="register">Register</string>
     <string name="not_a_member_click_here_to_sign_up">Not a member? Click here to sign up.</string>
+    <string name="donor_form">Donor Form</string>
+    <string name="log_out">Log Out</string>
+    <string name="donation_info">Donation Info</string>
+    <string name="appointment">Appointment</string>
+    <string name="donor_profile">Donor Profile</string>
     <string-array name="blood_group_array">
         <item>A+</item>
         <item>A-</item>

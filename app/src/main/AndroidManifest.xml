@@ -21,5 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name="cg.example.blooddonationfrontend.view.RegisterActivity"/>
+        <activity android:name="cg.example.blooddonationfrontend.view.HomeActivity"/>
     </application>
 </manifest>

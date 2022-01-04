@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_alignParentStart="true"
+    android:layout_centerInParent="true"
+    tools:context=".view.HomeActivity">
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+  <ImageButton
+      android:id="@+id/donorForm"
+      android:layout_width="120dp"
+      android:layout_height="120dp"
+      android:layout_marginStart="50dp"
+      android:layout_gravity="center_vertical"
+      android:background="@drawable/donorform" />
+  <TextView
+      android:id="@+id/donorFormString"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="15dp"
+      android:layout_gravity="center_vertical"
+      android:text="@string/donor_form"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      android:textColor="@color/black"
+      android:minHeight="48dp" />
+ </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+  <ImageButton
+      android:id="@+id/donorProfile"
+      android:layout_width="120dp"
+      android:layout_height="120dp"
+      android:layout_marginStart="50dp"
+      android:layout_gravity="center_vertical"
+      android:background="@drawable/donorprofile" />
+  <TextView
+      android:id="@+id/donorProfileString"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="15dp"
+      android:layout_gravity="center_vertical"
+      android:text="@string/donor_profile"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      android:textColor="@color/black"
+      android:minHeight="48dp" />
+ </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+  <ImageButton
+      android:id="@+id/appointment"
+      android:layout_width="120dp"
+      android:layout_height="120dp"
+      android:layout_marginStart="50dp"
+      android:layout_gravity="center_vertical"
+      android:background="@drawable/appointment" />
+  <TextView
+      android:id="@+id/appointmentString"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="15dp"
+      android:layout_gravity="center_vertical"
+      android:text="@string/appointment"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      android:textColor="@color/black"
+      android:minHeight="48dp" />
+ </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+  <ImageButton
+      android:id="@+id/donationInfo"
+      android:layout_width="120dp"
+      android:layout_height="120dp"
+      android:layout_marginStart="50dp"
+      android:layout_gravity="center_vertical"
+      android:background="@drawable/donationinfo" />
+  <TextView
+      android:id="@+id/donationInfoString"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="15dp"
+      android:layout_gravity="center_vertical"
+      android:text="@string/donation_info"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      android:textColor="@color/black"
+      android:minHeight="48dp" />
+ </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+  <ImageButton
+      android:id="@+id/logout"
+      android:layout_width="120dp"
+      android:layout_height="120dp"
+      android:layout_marginStart="50dp"
+      android:layout_gravity="center_vertical"
+      android:background="@drawable/exit" />
+  <TextView
+      android:id="@+id/logoutString"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="15dp"
+      android:layout_gravity="center_vertical"
+      android:text="@string/log_out"
+      android:textSize="20sp"
+      android:textStyle="bold"
+      android:textColor="@color/black"
+      android:minHeight="48dp"/>
+ </LinearLayout>
+
+</LinearLayout>

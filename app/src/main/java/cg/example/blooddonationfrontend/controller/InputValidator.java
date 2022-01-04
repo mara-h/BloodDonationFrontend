@@ -3,8 +3,8 @@ package cg.example.blooddonationfrontend.controller;
 import android.widget.EditText;
 
 public class InputValidator {
-    public boolean doStringsMatch(String firstString, String seconString) {
-        if(firstString == seconString)
+    public boolean doStringsMatch(String firstString, String secondString) {
+        if (firstString.equals(secondString))
             return true;
         return false;
     }

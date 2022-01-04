@@ -40,7 +40,7 @@ public class RegisterActivity extends android.app.Activity {
     private MaterialButton register;
     private Spinner bloodGroupInput;
     private InputValidator inputValidator = new InputValidator();
-    String Colector="";
+    String Colector = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,14 +91,13 @@ public class RegisterActivity extends android.app.Activity {
         bloodGroupInput.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                if(adapterView.getItemAtPosition(position).equals("Select blood group")) {
+                if (adapterView.getItemAtPosition(position).equals("Select blood group")) {
                     Colector = "UNKNOWN";
-                }
-                else {
+                } else {
                     String item = adapterView.getItemAtPosition(position).toString();
                     Colector = adapterView.getItemAtPosition(position).toString();
-                   // Colector+=item+"\n"; // ASA SAU colector = item?
-                   // Toast.makeText(RegisterActivity.this, "Select blood group "+ item, Toast.LENGTH_SHORT).show();
+                    // Colector+=item+"\n"; // ASA SAU colector = item?
+                    // Toast.makeText(RegisterActivity.this, "Select blood group "+ item, Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -108,14 +107,15 @@ public class RegisterActivity extends android.app.Activity {
             }
         });
 
-        findViewById(R.id.registerBtn).setOnClickListener(view->registerUser());
-        findViewById(R.id.registerBtn).setOnClickListener(view -> startActivity(new Intent(RegisterActivity.this, LoginActivity.class)));
+        findViewById(R.id.registerBtn).setOnClickListener(view -> registerUser());
+        System.out.println("register");
 
     }
 
 
     private void registerUser() {
         HashMap<EditText, String> inputs = new HashMap<>();
+        boolean isError = false;
 
         String nameString = name.getText().toString().trim();
         String emailString = email.getText().toString().trim();
@@ -135,46 +135,62 @@ public class RegisterActivity extends android.app.Activity {
         for (EditText field : inputs.keySet()) {
             if (inputs.get(field).isEmpty()) {
                 inputValidator.setFieldError(field, "This field cannot be empty");
+                System.out.println("is true pe false teoretic");
+                isError = true;
                 return;
             }
         }
 
-        if(sexString.getText().toString().equals("")) {
-            sexString.setError("Please select your sex.");
+        if (sexString.getText().toString().equals("")||sexString.getText().toString().equals("Please select your sex.")) {
+            sexString.setText("Please select your sex.");
+            isError = true;
         }
 
         if (!inputValidator.doStringsMatch(passwordString, retypePasswordString)) {
             inputValidator.setFieldError(retypePassword, "Passwords do not match");
+            isError = true;
             return;
         }
 
-        Call<ResponseBody> call = RetrofitClient
-                .getInstance()
-                .getAPI()
-                .createUser(new User(nameString, emailString, passwordString, cnpString, ageString, sexString.getText().toString(), bloodGroupString));
+        //TODO: move things below to a different function
 
-        call.enqueue(new Callback<ResponseBody>() {
+        if (isError) {
+            System.out.println("error");// TODO: make toast or smt
+        } else {
+            Call<ResponseBody> call = RetrofitClient
+                    .getInstance()
+                    .getAPI()
+                    .createUser(new User(nameString, emailString, passwordString, cnpString, ageString, sexString.getText().toString(), bloodGroupString));
 
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                String s = "";
-                try {
-                    s = response.body().string();
-                } catch (IOException e) {
-                    e.printStackTrace();
+            System.out.println("1");
+
+            call.enqueue(new Callback<ResponseBody>() {
+
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    String s = "";
+                    System.out.println("2");
+                    try {
+                        s = response.body().string();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("3");
+
+                    if (s.equals("SUCCESS")) {
+                        Toast.makeText(RegisterActivity.this, "Registered successfully. Please log in", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "User already exists.", Toast.LENGTH_LONG).show();
+                    }
                 }
 
-                if (s.equals("SUCCESS")) {
-                    Toast.makeText(RegisterActivity.this, "Registered successfully. Please log in", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                } else {
-                    Toast.makeText(RegisterActivity.this, "User already exists.", Toast.LENGTH_LONG).show();
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                    System.out.println("failure: " + t.getMessage());
                 }
-            }
 
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
-            }
 
-        });
+            });
+        }
     }
 }

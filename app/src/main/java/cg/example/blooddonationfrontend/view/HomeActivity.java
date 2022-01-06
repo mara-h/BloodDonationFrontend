@@ -7,10 +7,11 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import cg.example.blooddonationfrontend.R;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

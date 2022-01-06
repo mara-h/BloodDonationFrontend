@@ -18,8 +18,8 @@
      android:layout_height="wrap_content">
   <ImageButton
       android:id="@+id/donorForm"
-      android:layout_width="120dp"
-      android:layout_height="120dp"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
       android:layout_marginStart="50dp"
       android:layout_gravity="center_vertical"
       android:background="@drawable/donorform" />
@@ -38,11 +38,12 @@
 
  <LinearLayout
      android:layout_width="match_parent"
-     android:layout_height="wrap_content">
+     android:layout_height="wrap_content"
+     android:layout_marginTop="20dp">
   <ImageButton
       android:id="@+id/donorProfile"
-      android:layout_width="120dp"
-      android:layout_height="120dp"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
       android:layout_marginStart="50dp"
       android:layout_gravity="center_vertical"
       android:background="@drawable/donorprofile" />
@@ -61,11 +62,12 @@
 
  <LinearLayout
      android:layout_width="match_parent"
-     android:layout_height="wrap_content">
+     android:layout_height="wrap_content"
+     android:layout_marginTop="20dp">
   <ImageButton
       android:id="@+id/appointment"
-      android:layout_width="120dp"
-      android:layout_height="120dp"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
       android:layout_marginStart="50dp"
       android:layout_gravity="center_vertical"
       android:background="@drawable/appointment" />
@@ -84,11 +86,12 @@
 
  <LinearLayout
      android:layout_width="match_parent"
-     android:layout_height="wrap_content">
+     android:layout_height="wrap_content"
+     android:layout_marginTop="20dp">
   <ImageButton
       android:id="@+id/donationInfo"
-      android:layout_width="120dp"
-      android:layout_height="120dp"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
       android:layout_marginStart="50dp"
       android:layout_gravity="center_vertical"
       android:background="@drawable/donationinfo" />
@@ -107,11 +110,12 @@
 
  <LinearLayout
      android:layout_width="match_parent"
-     android:layout_height="wrap_content">
+     android:layout_height="wrap_content"
+     android:layout_marginTop="20dp">
   <ImageButton
       android:id="@+id/logout"
-      android:layout_width="120dp"
-      android:layout_height="120dp"
+      android:layout_width="80dp"
+      android:layout_height="80dp"
       android:layout_marginStart="50dp"
       android:layout_gravity="center_vertical"
       android:background="@drawable/exit" />

@@ -21,5 +21,8 @@
     <string name="_8">8</string>
     <string name="_00">00</string>
     <string name="make_appointment">Make Appointment</string>
+    <string name="scan_qr_code">Scan QR code</string>
+    <string name="donor_name">Donor name:</string>
+    <string name="blood_group">Blood group</string>
 
 </resources>

@@ -102,93 +102,27 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="1dp"
+        android:background="#6EFF215D"
         android:gravity="center_horizontal"
-        android:textAlignment="gravity"
         android:minHeight="48dp"
         android:text="@string/select_sex"
+        android:textAlignment="gravity"
         android:textColor="#000000" />
 
+
     <TextView
-        android:id="@+id/sexString"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sexInput"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="1dp"
-        android:gravity="center_horizontal"
-        android:minHeight="48dp"
-        android:textColor="#000000"
-        android:textAlignment="gravity"/>
-
-
-    <LinearLayout
-        android:id="@+id/lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sexString"
-        android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/Female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="25dp"
-            android:background="@drawable/female" />
-
-        <ImageView
-            android:id="@+id/line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="25dp"
-            android:background="@drawable/line" />
-
-        <ImageButton
-            android:id="@+id/Male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
-            android:background="@drawable/male" />
-    </LinearLayout>
-
-    <Spinner
         android:id="@+id/bloodGroupInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lay"
+        android:layout_below="@id/sexInput"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/emailimg"
-        android:drawSelectorOnTop="true"
+        android:background="#6EFF215D"
         android:dropDownSelector="@drawable/emailimg"
+        android:hint="Blood group:"
         android:spinnerMode="dropdown"
-        android:text="@string/select_blood_group"
-        android:textColor="@color/white"
         android:visibility="visible" />
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/registerBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/bloodGroupInput"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#FF215D"
-        android:text="@string/register"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
 
 </RelativeLayout>

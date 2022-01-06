@@ -1,4 +1,6 @@
 package cg.example.blooddonationfrontend.view;
 
-public class DonorFormActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class DonorFormActivity extends AppCompatActivity {
 }

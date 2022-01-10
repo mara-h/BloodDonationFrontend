@@ -51,5 +51,11 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        appointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, AppointmentActivity.class));
+            }
+        });
     }
 }

@@ -13,5 +13,8 @@ public interface API {
             @Body User user
     );
 
-
+    @POST("users")
+    Call<ResponseBody> createUser(
+            @Body User user
+    );
 }

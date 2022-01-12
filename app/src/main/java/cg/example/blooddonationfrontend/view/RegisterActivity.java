@@ -2,7 +2,6 @@ package cg.example.blooddonationfrontend.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -135,62 +134,58 @@ public class RegisterActivity extends android.app.Activity {
         for (EditText field : inputs.keySet()) {
             if (inputs.get(field).isEmpty()) {
                 inputValidator.setFieldError(field, "This field cannot be empty");
-                System.out.println("is true pe false teoretic");
                 isError = true;
-                return;
             }
         }
 
-        if (sexString.getText().toString().equals("")||sexString.getText().toString().equals("Please select your sex.")) {
+
+        if (sexString.getText().toString().equals("") || sexString.getText().toString().equals("Please select your sex.")) {
             sexString.setText("Please select your sex.");
             isError = true;
         }
 
-        if (!inputValidator.doStringsMatch(passwordString, retypePasswordString)) {
-            inputValidator.setFieldError(retypePassword, "Passwords do not match");
-            isError = true;
-            return;
-        }
-
-        //TODO: move things below to a different function
-
-        if (isError) {
-            System.out.println("error");// TODO: make toast or smt
+        if (!inputs.get(retypePassword).isEmpty()) {
+            if (!inputValidator.doStringsMatch(passwordString, retypePasswordString)) {
+                inputValidator.setFieldError(retypePassword, "Passwords do not match");
+                isError = true;
+            } else {
+                isError = false;
+            }
         } else {
-            Call<ResponseBody> call = RetrofitClient
-                    .getInstance()
-                    .getAPI()
-                    .createUser(new User(nameString, emailString, passwordString, cnpString, ageString, sexString.getText().toString(), bloodGroupString));
-
-            System.out.println("1");
-
-            call.enqueue(new Callback<ResponseBody>() {
-
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    String s = "";
-                    System.out.println("2");
-                    try {
-                        s = response.body().string();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println("3");
-
-                    if (s.equals("SUCCESS")) {
-                        Toast.makeText(RegisterActivity.this, "Registered successfully. Please log in", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                    } else {
-                        Toast.makeText(RegisterActivity.this, "User already exists.", Toast.LENGTH_LONG).show();
-                    }
-                }
-
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
-                    System.out.println("failure: " + t.getMessage());
-                }
-
-
-            });
+            isError = true;
         }
+
+        if (!isError)
+            this.makeCall(new User(nameString, emailString, passwordString, cnpString, ageString, sexString.getText().toString(), bloodGroupString));
+    }
+
+    private void makeCall (User newUser){
+        Call<ResponseBody> call = RetrofitClient
+                .getInstance()
+                .getAPI()
+                .createUser(newUser);
+
+        call.enqueue(new Callback<ResponseBody>() {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                String s = "";
+                try {
+                    s = response.body().string();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (s.equals("SUCCESS")) {
+                    Toast.makeText(RegisterActivity.this, "Registered successfully. Please log in", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                } else {
+                    Toast.makeText(RegisterActivity.this, "User already exists.", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                System.out.println("failure: " + t.getMessage());
+            }
+        });
     }
 }
+

@@ -1,5 +1,8 @@
 package cg.example.blooddonationfrontend.api;
 
+import java.util.List;
+
+import cg.example.blooddonationfrontend.model.Question;
 import cg.example.blooddonationfrontend.model.User;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -17,4 +20,7 @@ public interface API {
     Call<ResponseBody> createUser(
             @Body User user
     );
+
+    @GET("questions")
+    Call<List<Question>> getQuestions();
 }

@@ -58,7 +58,7 @@ public class AppointmentActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 //TODO:
 
-               String item = adapterView.getItemAtPosition(position).toString();
+               String itemHour = adapterView.getItemAtPosition(position).toString();
 
 
             }
@@ -74,8 +74,9 @@ public class AppointmentActivity extends AppCompatActivity {
         minuteSpinner.setAdapter(arrayAdapterMinute);
         minuteSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 //TODO:
+                String itemMinute = adapterView.getItemAtPosition(position).toString();
             }
 
             @Override

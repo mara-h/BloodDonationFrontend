@@ -1,5 +1,7 @@
 package cg.example.blooddonationfrontend.model;
 
+import java.util.List;
+
 public class Globals {
 
     public static void setCurrentUser(User currentUser) {
@@ -33,5 +35,10 @@ public class Globals {
 
     public static User currentUser;
 
+    public static List<Question> allQuestions;
+
+    public static void setQuestions(List<Question> allQuestions) {
+        Globals.allQuestions = allQuestions;
+    }
 
 }

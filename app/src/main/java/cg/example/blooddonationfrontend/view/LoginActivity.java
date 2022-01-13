@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
             User user = new User();
             user.setEmail(emailText.getText().toString()); // check
             user.setPassword(passwordText.getText().toString());
-
+            //Log.e("Chestie", emailText.toString() );
             this.makeLoginCall(user);
         }
 
@@ -101,9 +101,6 @@ public class LoginActivity extends AppCompatActivity {
                 if(success) {
                     User crtUser = response.body();
                     Globals.setCurrentUser(crtUser);
-                    if(crtUser.getMedic()) {
-                        startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class));
-                    } else
                     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 } else {
                     if(requestCode == 500) {

@@ -4,7 +4,6 @@ import android.media.session.PlaybackState;
 
 public class User {
     private String firstName, lastName, email, password, cnp, age, sex, bloodGroup;
-    private Boolean isMedic ;
 
     public User(String firstName, String lastName, String email, String password, String cnp, String age, String sex, String bloodGroup) {
         this.firstName = firstName;
@@ -15,19 +14,6 @@ public class User {
         this.age = age;
         this.sex = sex;
         this.bloodGroup = bloodGroup;
-        this.isMedic = false;
-    }
-
-    public User(String firstName, String lastName, String email, String password, String cnp, String age, String sex, String bloodGroup, Boolean isMedic) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.cnp = cnp;
-        this.age = age;
-        this.sex = sex;
-        this.bloodGroup = bloodGroup;
-        this.isMedic = isMedic;
     }
 
     public User() {
@@ -99,8 +85,11 @@ public class User {
     }
 
 
-    public Boolean getMedic() {
-        return isMedic;
-    }
+
+
+
+
+
+
 
 }

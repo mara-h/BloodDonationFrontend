@@ -1,28 +1,54 @@
 package cg.example.blooddonationfrontend.model;
 
-public class User {
-    private String name, email, password, cnp, age, sex, bloodGroup;
+import android.media.session.PlaybackState;
 
-    public User(String name, String email, String password, String cnp, String age, String sex, String bloodGroup) {
-        this.name = name;
+public class User {
+    private String firstName, lastName, email, password, cnp, age, sex, bloodGroup;
+    private Boolean isMedic ;
+
+    public User(String firstName, String lastName, String email, String password, String cnp, String age, String sex, String bloodGroup) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.cnp = cnp;
         this.age = age;
         this.sex = sex;
         this.bloodGroup = bloodGroup;
+        this.isMedic = false;
+    }
+
+    public User(String firstName, String lastName, String email, String password, String cnp, String age, String sex, String bloodGroup, Boolean isMedic) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.cnp = cnp;
+        this.age = age;
+        this.sex = sex;
+        this.bloodGroup = bloodGroup;
+        this.isMedic = isMedic;
     }
 
     public User() {
 
     }
 
-    public String getName() {
-        return name;
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
     }
 
     public String getPassword() {
@@ -73,11 +99,8 @@ public class User {
     }
 
 
-
-
-
-
-
-
+    public Boolean getMedic() {
+        return isMedic;
+    }
 
 }

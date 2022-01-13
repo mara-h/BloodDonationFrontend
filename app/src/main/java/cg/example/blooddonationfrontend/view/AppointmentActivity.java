@@ -1,10 +1,12 @@
 package cg.example.blooddonationfrontend.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
@@ -16,15 +18,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cg.example.blooddonationfrontend.R;
+import cg.example.blooddonationfrontend.model.Appointment;
 
 public class AppointmentActivity extends AppCompatActivity {
+
+    String Colector = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_appointment);
         Spinner hourSpinner = findViewById(R.id.hourSpinner);
         Spinner minuteSpinner = findViewById(R.id.minuteSpinner);
         MaterialButton makeAppointment = findViewById(R.id.makeAppointment);
+        ImageButton backButton = findViewById(R.id.back_button);
+
 
         List<String> hours = new ArrayList<>();
         hours.add("8");
@@ -47,8 +55,12 @@ public class AppointmentActivity extends AppCompatActivity {
         hourSpinner.setAdapter(arrayAdapterHour);
         hourSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 //TODO:
+
+               String item = adapterView.getItemAtPosition(position).toString();
+
+
             }
 
             @Override
@@ -78,5 +90,12 @@ public class AppointmentActivity extends AppCompatActivity {
                 //TODO: make appointment
             }
         });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AppointmentActivity.this, HomeActivity.class));
+            }
+        });
+
     }
 }

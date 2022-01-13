@@ -16,11 +16,11 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_home);
         ImageButton donorForm = findViewById(R.id.donorForm);
         ImageButton donorProfile = findViewById(R.id.donorProfile);
         ImageButton appointment = findViewById(R.id.appointment);
-        ImageButton donationInfo = findViewById(R.id.donationInfo);
+        //ImageButton donationInfo = findViewById(R.id.donationInfo);
         ImageButton logout = findViewById(R.id.logout);
 
         donorForm.setOnClickListener(new View.OnClickListener() {
@@ -37,12 +37,12 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        donationInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, DonationInfoActivity.class));
-            }
-        });
+//        donationInfo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(HomeActivity.this, DonationInfoActivity.class));
+//            }
+//        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

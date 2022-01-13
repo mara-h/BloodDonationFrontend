@@ -9,7 +9,7 @@
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout-v23/activity_admin_donor_details.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout-v23/activity_appointment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout-v23/activity_register.xml" value="0.20955882352941177" />
-        <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_admin_camera.xml" value="0.4" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_admin_camera.xml" value="0.152" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_admin_donor_details.xml" value="0.2" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_admin_home.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_appointment.xml" value="0.25416666666666665" />
@@ -17,12 +17,13 @@
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_donor_form.xml" value="0.2" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_donor_profile.xml" value="0.264" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_home.xml" value="0.264" />
-        <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_login.xml" value="0.14947916666666666" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_qr_generator.xml" value="0.1" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_scan_qr.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/ex.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/fragment_account.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/xml/network_security_conig.xml" value="0.1" />
       </map>
     </option>

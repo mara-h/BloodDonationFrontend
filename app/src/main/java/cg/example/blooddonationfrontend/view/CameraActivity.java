@@ -16,6 +16,7 @@ import cg.example.blooddonationfrontend.R;
 
 public class CameraActivity extends AppCompatActivity {
     private CodeScanner mCodeScanner;
+    private String id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,9 @@ public class CameraActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(CameraActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(CameraActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
+                        id = result.getText();
+                        findViewById(R.id.answerCamera).setVisibility(View.VISIBLE);
                     }
                 });
             }

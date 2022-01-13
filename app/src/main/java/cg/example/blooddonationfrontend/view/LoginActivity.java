@@ -3,6 +3,7 @@ package cg.example.blooddonationfrontend.view;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 import cg.example.blooddonationfrontend.R;
 import cg.example.blooddonationfrontend.api.RetrofitClient;
+import cg.example.blooddonationfrontend.model.Globals;
 import cg.example.blooddonationfrontend.model.User;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -22,7 +24,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordText, emailText;
     private TextView registerField;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +31,8 @@ public class LoginActivity extends AppCompatActivity {
 
         emailText = findViewById(R.id.emailText);
         passwordText = findViewById(R.id.passwordText);
-        MaterialButton loginBtn = (MaterialButton)findViewById(R.id.loginBtn);
         registerField = (TextView)findViewById(R.id.registerField);
-
-
-
+        
         findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +46,13 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
+
+//        findViewById(R.id.loginAdminBtn).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class));
+//            }
+//        });
 
     }
 
@@ -71,28 +76,31 @@ public class LoginActivity extends AppCompatActivity {
 
         if(!errorFlag) {
             User user = new User();
-            user.setEmail(emailText.toString()); // check
-            user.setPassword(passwordText.toString());
+            user.setEmail(emailText.getText().toString()); // check
+            user.setPassword(passwordText.getText().toString());
+            //Log.e("Chestie", emailText.toString() );
             this.makeLoginCall(user);
         }
 
     }
 
     private void makeLoginCall(User user) {
-        Call<ResponseBody> call = RetrofitClient
+        Call<User> call = RetrofitClient
                 .getInstance()
                 .getAPI()
                 .checkUser(user);
 
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                boolean success;
+            public void onResponse(Call<User> call, Response<User> response) {
+                Boolean success;
                 success = response.isSuccessful();
 
                 int requestCode = response.code();
 
                 if(success) {
+                    User crtUser = response.body();
+                    Globals.setCurrentUser(crtUser);
                     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 } else {
                     if(requestCode == 500) {
@@ -109,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
 
             }

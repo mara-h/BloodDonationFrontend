@@ -2,6 +2,7 @@ package cg.example.blooddonationfrontend.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -33,7 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends android.app.Activity {
-    private EditText name, email, password, retypePassword, cnp, age;
+    private EditText firstName,lastName, email, password, retypePassword, cnp, age;
     private TextView sexString;
     private ImageButton female, male;
     private MaterialButton register;
@@ -46,7 +47,8 @@ public class RegisterActivity extends android.app.Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        name = findViewById(R.id.registerNameInput);
+        firstName = findViewById(R.id.registerFirstNameInput);
+        lastName = findViewById(R.id.registerLastNameInput);
         email = findViewById(R.id.registerEmailInput);
         password = findViewById(R.id.registerPasswordInput);
         retypePassword = findViewById(R.id.registerPasswordRetype);
@@ -94,11 +96,40 @@ public class RegisterActivity extends android.app.Activity {
                     Colector = "UNKNOWN";
                 } else {
                     String item = adapterView.getItemAtPosition(position).toString();
-                    Colector = adapterView.getItemAtPosition(position).toString();
-                    // Colector+=item+"\n"; // ASA SAU colector = item?
-                    // Toast.makeText(RegisterActivity.this, "Select blood group "+ item, Toast.LENGTH_SHORT).show();
+                    //Colector = adapterView.getItemAtPosition(position).toString();
+                    switch (item) {
+                        case "A+":
+                            Colector = "Aplus";
+                            break;
+                        case "A-":
+                            Colector = "Aminus";
+                            break;
+                        case "B+":
+                            Colector = "Bplus";
+                            break;
+                        case "B-":
+                            Colector = "Bminus";
+                            break;
+                        case "AB+":
+                            Colector = "ABplus";
+                            break;
+                        case "AB-":
+                            Colector = "ABminus";
+                            break;
+                        case "0+":
+                            Colector = "Oplus";
+                            break;
+                        case "0-":
+                            Colector = "Ominus";
+                            break;
+                        default:
+                            Colector = "UNKNOWN";
+                            break;
+                    }
                 }
             }
+
+
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -116,7 +147,8 @@ public class RegisterActivity extends android.app.Activity {
         HashMap<EditText, String> inputs = new HashMap<>();
         boolean isError = false;
 
-        String nameString = name.getText().toString().trim();
+        String firstNameString = firstName.getText().toString().trim();
+        String lastNameString = lastName.getText().toString().trim();
         String emailString = email.getText().toString().trim();
         String passwordString = password.getText().toString().trim();
         String retypePasswordString = retypePassword.getText().toString().trim();
@@ -124,7 +156,8 @@ public class RegisterActivity extends android.app.Activity {
         String ageString = age.getText().toString().trim();
         String bloodGroupString = bloodGroupInput.getSelectedItem().toString();
 
-        inputs.put(name, nameString);
+        inputs.put(firstName, firstNameString);
+        inputs.put(lastName, lastNameString);
         inputs.put(email, emailString);
         inputs.put(password, passwordString);
         inputs.put(retypePassword, retypePasswordString);
@@ -154,9 +187,11 @@ public class RegisterActivity extends android.app.Activity {
         } else {
             isError = true;
         }
-
+        Log.e("CEVAAA", firstName.getText().toString());
         if (!isError)
-            this.makeCall(new User(nameString, emailString, passwordString, cnpString, ageString, sexString.getText().toString(), bloodGroupString));
+
+            this.makeCall(new User(firstNameString, lastNameString, emailString, passwordString, cnpString, ageString, sexString.getText().toString(), Colector));
+
     }
 
     private void makeCall (User newUser){
@@ -167,20 +202,19 @@ public class RegisterActivity extends android.app.Activity {
 
         call.enqueue(new Callback<ResponseBody>() {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                String s = "";
-                try {
-                    s = response.body().string();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (s.equals("SUCCESS")) {
+                Boolean success;
+                success = response.isSuccessful();
+                int requestCode = response.code();
+                if (success) {
                     Toast.makeText(RegisterActivity.this, "Registered successfully. Please log in", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 } else {
-                    Toast.makeText(RegisterActivity.this, "User already exists.", Toast.LENGTH_LONG).show();
+                    if (requestCode == 400)
+                        Toast.makeText(RegisterActivity.this, "Username or email is taken!", Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(RegisterActivity.this, "Server Error", Toast.LENGTH_LONG).show();
                 }
             }
-
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
                 System.out.println("failure: " + t.getMessage());

@@ -32,15 +32,29 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/registerNameInput"
+        android:id="@+id/registerFirstNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#6EFF215D"
-        android:hint="@string/name"
+        android:hint="@string/fisrt_name"
+        android:textColorHint="@color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/registerLastNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registerFirstNameInput"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#6EFF215D"
+        android:hint="@string/last_name"
         android:textColorHint="@color/black"
         android:textSize="20sp" />
 
@@ -48,7 +62,7 @@
         android:id="@+id/registerEmailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/registerNameInput"
+        android:layout_below="@id/registerLastNameInput"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -58,39 +72,12 @@
         android:textColorHint="@color/black"
         android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/registerPasswordInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/registerEmailInput"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:hint="@string/password"
-        android:textColorHint="@color/black"
-        android:textSize="20sp"
-        android:background="#6EFF215D" />
-
-    <EditText
-        android:id="@+id/registerPasswordRetype"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_below="@id/registerPasswordInput"
-        android:hint="@string/retype_password"
-        android:textSize="20sp"
-        android:textColorHint="@color/black"
-        android:background="#6EFF215D" />
 
     <EditText
         android:id="@+id/ageInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/registerPasswordRetype"
+        android:layout_below="@id/registerEmailInput"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -115,7 +102,7 @@
         android:textSize="20sp" />
 
 
-    <TextView
+    <EditText
         android:id="@+id/sexInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -126,25 +113,27 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="1dp"
         android:background="#6EFF215D"
-        android:minHeight="48dp"
-        android:text="@string/select_sex"
+        android:text="@string/sex"
         android:textAlignment="gravity"
-        android:textColor="#000000" />
+        android:textColorHint="@color/black"
+        android:textSize="20sp" />
 
 
-    <TextView
+    <EditText
         android:id="@+id/bloodGroupInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/sexInput"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#6EFF215D"
         android:dropDownSelector="@drawable/emailimg"
-        android:hint="Blood group:"
+        android:hint="@string/blood_group_"
         android:spinnerMode="dropdown"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:textSize="20sp"
+        android:textColorHint="@color/black"/>
 
 </RelativeLayout>

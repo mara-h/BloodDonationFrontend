@@ -9,7 +9,7 @@
     tools:context="cg.example.blooddonationfrontend.view.RegisterActivity">
 
     <EditText
-        android:id="@+id/registerNameInput"
+        android:id="@+id/registerFirstNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -17,7 +17,21 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#6EFF215D"
-        android:hint="@string/name"
+        android:hint="@string/fisrt_name"
+        android:textColorHint="@color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/registerLastNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registerFirstNameInput"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#6EFF215D"
+        android:hint="@string/last_name"
         android:textColorHint="@color/black"
         android:textSize="20sp" />
 
@@ -25,7 +39,7 @@
         android:id="@+id/registerEmailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/registerNameInput"
+        android:layout_below="@id/registerLastNameInput"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -104,7 +118,7 @@
         android:layout_marginBottom="1dp"
         android:gravity="center_horizontal"
         android:textAlignment="gravity"
-        android:minHeight="48dp"
+        android:minHeight="20sp"
         android:text="@string/select_sex"
         android:textColor="#000000" />
 
@@ -119,9 +133,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="1dp"
         android:gravity="center_horizontal"
-        android:minHeight="48dp"
-        android:textColor="#000000"
-        android:textAlignment="gravity"/>
+        android:minHeight="20sp"
+        android:textAlignment="gravity"
+        android:textColor="#000000" />
 
 
     <LinearLayout
@@ -139,7 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="25dp"
+            android:layout_margin="20dp"
             android:background="@drawable/female" />
 
         <ImageView
@@ -147,7 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="25dp"
+            android:layout_margin="20dp"
             android:background="@drawable/line" />
 
         <ImageButton
@@ -155,10 +169,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/male" />
     </LinearLayout>
 

@@ -84,29 +84,6 @@
       android:minHeight="48dp" />
  </LinearLayout>
 
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:layout_marginTop="20dp">
-  <ImageButton
-      android:id="@+id/donationInfo"
-      android:layout_width="80dp"
-      android:layout_height="80dp"
-      android:layout_marginStart="50dp"
-      android:layout_gravity="center_vertical"
-      android:background="@drawable/donationinfo" />
-  <TextView
-      android:id="@+id/donationInfoString"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="15dp"
-      android:layout_gravity="center_vertical"
-      android:text="@string/donation_info"
-      android:textSize="20sp"
-      android:textStyle="bold"
-      android:textColor="@color/black"
-      android:minHeight="48dp" />
- </LinearLayout>
 
  <LinearLayout
      android:layout_width="match_parent"

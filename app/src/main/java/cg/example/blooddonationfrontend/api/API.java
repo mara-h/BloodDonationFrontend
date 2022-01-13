@@ -8,8 +8,8 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface API {
-    @POST("users")
-    Call<ResponseBody> checkUser (
+    @POST("users/login")
+    Call<User> checkUser (
             @Body User user
     );
 

@@ -15,6 +15,8 @@ public class AdminHomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_admin_home);
+
         ImageButton scanQr = findViewById(R.id.scanQr);
         ImageButton logout = findViewById(R.id.logout);
 

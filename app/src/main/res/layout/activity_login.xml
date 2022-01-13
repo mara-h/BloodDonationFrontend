@@ -68,6 +68,8 @@
         android:gravity="center"
         android:text="@string/log_in" />
 
+
+
     <TextView
         android:id="@+id/registerField"
         android:layout_width="wrap_content"

@@ -101,7 +101,11 @@ public class LoginActivity extends AppCompatActivity {
                 if(success) {
                     User crtUser = response.body();
                     Globals.setCurrentUser(crtUser);
-                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    if(crtUser.getEmail().equals("doctor@doctor.com")) {
+                        startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class));
+                    } else {
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    }
                 } else {
                     if(requestCode == 500) {
                         Toast.makeText(LoginActivity.this, "Server error", Toast.LENGTH_LONG).show();

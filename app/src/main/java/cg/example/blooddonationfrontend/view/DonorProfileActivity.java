@@ -28,6 +28,7 @@ public class DonorProfileActivity extends AppCompatActivity {
         EditText sex = findViewById(R.id.sexInput);
         EditText bloodGroup = findViewById(R.id.bloodGroupInput);
 
+
         firstName.setText(Globals.currentUser.getFirstName());
         lastName.setText(Globals.currentUser.getLastName());
         email.setText(Globals.currentUser.getEmail());

@@ -1,7 +1,5 @@
 package cg.example.blooddonationfrontend.model;
 
-import android.media.session.PlaybackState;
-
 public class User {
     private String firstName, lastName, email, password, cnp, age, sex, bloodGroup;
 
@@ -80,6 +78,11 @@ public class User {
     public String getBloodGroup() {
         return bloodGroup;
     }
+
+    public void setCnp(String cnp) {
+        this.cnp = cnp;
+    }
+
     public void setBloodGroup(String bloodGroup) {
         this.bloodGroup = bloodGroup;
     }

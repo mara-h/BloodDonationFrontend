@@ -39,7 +39,11 @@ public class HomeActivity extends AppCompatActivity {
         donorForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, DonorFormActivity.class));
+                if(Globals.canGenerate) {
+                    startActivity(new Intent(HomeActivity.this, DonorFormActivity.class));
+                } else {
+                    Toast.makeText(HomeActivity.this, "Questionnaire is not available. You cannot donate blood.", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -60,6 +64,7 @@ public class HomeActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Globals.setCanGenerate(true);
                 startActivity(new Intent(HomeActivity.this, LoginActivity.class));
             }
         });

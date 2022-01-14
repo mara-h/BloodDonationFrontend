@@ -121,12 +121,11 @@ public class DonorFormActivity extends AppCompatActivity {
                     int response = verifyAnswer();
                     switch (response) {
                         case 0:
-
+                            Globals.setCanGenerate(false);
                             choiceText.setText("");
                             startActivity(new Intent(DonorFormActivity.this, InvalidQuestionnaireActivity.class));
                             break;
                         case 1:
-
 
                             choiceText.setText("");
                             setNextQuestion();
@@ -260,6 +259,7 @@ public class DonorFormActivity extends AppCompatActivity {
                 int requestCode = response.code();
 
                 if(success) {
+                    Globals.setCanGenerate(false);
                     Questionnaire crtQuestionnaire = response.body();
                     UUID id = crtQuestionnaire.getId();
                     Intent intentQR = new Intent(DonorFormActivity.this, QRActivity.class);

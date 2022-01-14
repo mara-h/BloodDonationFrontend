@@ -41,6 +41,8 @@ public class Globals {
 
     public static User questionnaireUser;
 
+    public static Boolean canGenerate;
+
     public static void setQuestions(List<Question> allQuestions) {
         Globals.allQuestions = allQuestions;
     }
@@ -51,5 +53,9 @@ public class Globals {
 
     public static void setQuestionnaireUser(User questionnaireUser) {
         Globals.questionnaireUser = questionnaireUser;
+    }
+
+    public static void setCanGenerate(Boolean canGenerate) {
+        Globals.canGenerate = canGenerate;
     }
 }

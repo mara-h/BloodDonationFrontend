@@ -101,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(success) {
                     User crtUser = response.body();
                     Globals.setCurrentUser(crtUser);
+                    Globals.setCanGenerate(true);
                     if(crtUser.getEmail().equals("doctor@doctor.com")) {
                         startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class));
                     } else {

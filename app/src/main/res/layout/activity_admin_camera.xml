@@ -23,13 +23,15 @@
         app:maskColor="#77000000"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:id="@+id/answerCamera"
+        android:backgroundTint="@color/white"
         android:visibility="invisible"
         android:background="@color/white"
+
         />
 </FrameLayout>

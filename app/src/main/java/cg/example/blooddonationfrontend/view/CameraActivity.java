@@ -30,7 +30,7 @@ public class CameraActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //Toast.makeText(CameraActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CameraActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
                         id = result.getText();
                         findViewById(R.id.answerCamera).setVisibility(View.VISIBLE);
                     }

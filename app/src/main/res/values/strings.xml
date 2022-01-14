@@ -29,5 +29,6 @@
     <string name="blood_group_">Blood group:</string>
     <string name="fisrt_name">First Name</string>
     <string name="last_name">Last Name</string>
+    <string name="qr_code">QR Code</string>
 
 </resources>

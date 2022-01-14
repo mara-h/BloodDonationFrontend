@@ -19,11 +19,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.UUID;
 
 import cg.example.blooddonationfrontend.R;
+import cg.example.blooddonationfrontend.api.RetrofitClient;
 import cg.example.blooddonationfrontend.model.Enums;
 import cg.example.blooddonationfrontend.model.Globals;
 import cg.example.blooddonationfrontend.model.Question;
+import cg.example.blooddonationfrontend.model.Questionnaire;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DonorFormActivity extends AppCompatActivity {
     int allQuestionsCount = 31;
@@ -104,26 +111,34 @@ public class DonorFormActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (count == allQuestionsCount) {
                     //TODO: generate and save questionnaire
+                    Questionnaire questionnaire = new Questionnaire();
+                    questionnaire.setUserId(Globals.currentUser.getId());
+                    questionnaire.setValid(true);
+                    saveQuestionnaire(questionnaire);
                 } else {
                     count++;
 
                     int response = verifyAnswer();
                     switch (response) {
                         case 0:
-                            Log.e("Answer", "Invalid questionnaire");
+
                             choiceText.setText("");
                             startActivity(new Intent(DonorFormActivity.this, InvalidQuestionnaireActivity.class));
                             break;
                         case 1:
-                            Log.e("Answer", "Valid questionnaire");
-                            if(count == 32){
-                                startActivity(new Intent(DonorFormActivity.this, HomeActivity.class));
-                            }
+
+
                             choiceText.setText("");
                             setNextQuestion();
                             break;
+                        case 3:
+                            //TODO: call pt chestionar
+                            Questionnaire questionnaire = new Questionnaire();
+                            questionnaire.setUserId(Globals.currentUser.getId());
+                            questionnaire.setValid(true);
+                            saveQuestionnaire(questionnaire);
+                            break;
                         default:
-                            Log.e("Answer", "Missing answer");
                             break;
                     }
                 }
@@ -131,9 +146,11 @@ public class DonorFormActivity extends AppCompatActivity {
         });
     }
 
+
     //0 = raspunsul dat este incorect
     //1 = raspuns corect
     //2 = nu a dat raspuns inca
+    // 3 = nu a consumat alcool
     private int verifyAnswer() {
         ImageButton backButton = findViewById(R.id.back_button);
         ImageButton nextButton = findViewById(R.id.next_button);
@@ -146,22 +163,28 @@ public class DonorFormActivity extends AppCompatActivity {
         TextView choiceText = findViewById(R.id.choiceText);
 
         String gender = Globals.currentUser.getSex();
-
-        if(choiceText.getText().equals(""))
+        if (choiceText.getText().equals(""))
             return 2;
 
+        if (count == allQuestionsCount) {
+            if (choiceText.getText().equals("NO")) {
+                return 3;
+            }
+            return 1;
+        }
+
         if (isGoodAnswerNo) {
-            if(choiceText.getText().equals("YES"))
+            if (choiceText.getText().equals("YES"))
                 return 0;
         } else {
-            if(boolQuestion) {
-                if(choiceText.getText().equals("NO"))
+            if (boolQuestion) {
+                if (choiceText.getText().equals("NO"))
                     return 0;
             } else {
-                if(choiceText.getText().equals(">5 cups"))
+                if (choiceText.getText().equals(">5 cups"))
                     return 0;
-                if(gender.equals("female")) {
-                    if(choiceText.getText().equals("3-5 cups"))
+                if (gender.toString().equals("female")) {
+                    if (choiceText.getText().equals("3-5 cups"))
                         return 0;
                 }
 
@@ -194,7 +217,7 @@ public class DonorFormActivity extends AppCompatActivity {
         Enums.AnswerType answerType = question.getAnswerType();
 
         isGoodAnswerNo = question.isGoodAnswerNo();
-        Log.e("isgoodAnswerno", ""+ question.isGoodAnswerNo());
+
         if (question.getAnswerType() == bool) {
             boolQuestion = true;
         } else {
@@ -223,5 +246,37 @@ public class DonorFormActivity extends AppCompatActivity {
 
 
     }
+
+    private void saveQuestionnaire(Questionnaire questionnaire) {
+        Call<Questionnaire> call = RetrofitClient
+                .getInstance()
+                .getAPI()
+                .saveQuestionnaire(questionnaire);
+
+        call.enqueue(new Callback<Questionnaire>() {
+            public void onResponse(Call<Questionnaire> call, Response<Questionnaire> response) {
+                Boolean success;
+                success = response.isSuccessful();
+                int requestCode = response.code();
+
+                if(success) {
+                    Questionnaire crtQuestionnaire = response.body();
+                    UUID id = crtQuestionnaire.getId();
+                    Intent intentQR = new Intent(DonorFormActivity.this, QRActivity.class);
+                    intentQR.putExtra("id", id.toString());
+                    startActivity(intentQR);
+                } else {
+                    Toast.makeText(DonorFormActivity.this, "Problems encountered.", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            public void onFailure(Call<Questionnaire> call, Throwable t) {
+                Toast.makeText(DonorFormActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                System.out.println("failure: " + t.getMessage());
+            }
+        });
+    }
 }
+
 

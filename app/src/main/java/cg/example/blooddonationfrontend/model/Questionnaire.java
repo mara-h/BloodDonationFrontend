@@ -6,10 +6,10 @@ public class Questionnaire {
 
     private UUID id;
     public UUID userId;
-    private boolean valid;
+    private Boolean valid;
 
 
-    public Questionnaire(UUID id, UUID userId,boolean valid) {
+    public Questionnaire(UUID id, UUID userId,Boolean valid) {
         this.id = id;
         this.userId = userId;
         this.valid = valid;
@@ -34,11 +34,11 @@ public class Questionnaire {
         this.userId = userId;
     }
 
-    public boolean isValid() {
+    public Boolean isValid() {
         return valid;
     }
 
-    public void setValid(boolean valid) {
+    public void setValid(Boolean valid) {
         this.valid = valid;
     }
 }

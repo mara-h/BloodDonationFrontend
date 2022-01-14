@@ -33,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         //ImageButton donationInfo = findViewById(R.id.donationInfo);
         ImageButton logout = findViewById(R.id.logout);
 
+        //Globals.setQuestions(null);
         this.getQuestions();
 
         donorForm.setOnClickListener(new View.OnClickListener() {

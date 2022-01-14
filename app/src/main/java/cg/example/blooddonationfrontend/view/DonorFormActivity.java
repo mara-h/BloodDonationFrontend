@@ -29,7 +29,8 @@ public class DonorFormActivity extends AppCompatActivity {
     int allQuestionsCount = 31;
     int count = 1;
     Boolean isQuestionnaireValid = true;
-
+    Boolean isGoodAnswerNo;
+    Boolean boolQuestion;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -48,7 +49,7 @@ public class DonorFormActivity extends AppCompatActivity {
         TextView questionBody = findViewById(R.id.questionBody);
         TextView choiceText = findViewById(R.id.choiceText);
 
-        if(Globals.allQuestions == null) {
+        if (Globals.allQuestions == null) {
             Toast.makeText(DonorFormActivity.this, "No questions available.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(DonorFormActivity.this, HomeActivity.class));
         }
@@ -101,17 +102,73 @@ public class DonorFormActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(count == allQuestionsCount) {
+                if (count == allQuestionsCount) {
                     //TODO: generate and save questionnaire
                 } else {
                     count++;
-                    if(!isQuestionnaireValid)
-                        startActivity(new Intent(DonorFormActivity.this, HomeActivity.class));
-                    choiceText.setText("");
-                    setNextQuestion();
+
+                    int response = verifyAnswer();
+                    switch (response) {
+                        case 0:
+                            Log.e("Answer", "Invalid questionnaire");
+                            choiceText.setText("");
+                            startActivity(new Intent(DonorFormActivity.this, HomeActivity.class));
+                            break;
+                        case 1:
+                            Log.e("Answer", "Valid questionnaire");
+                            if(count == 32){
+                                startActivity(new Intent(DonorFormActivity.this, HomeActivity.class));
+                            }
+                            choiceText.setText("");
+                            setNextQuestion();
+                            break;
+                        default:
+                            Log.e("Answer", "Missing answer");
+                            break;
+                    }
                 }
             }
         });
+    }
+
+    //0 = raspunsul dat este incorect
+    //1 = raspuns corect
+    //2 = nu a dat raspuns inca
+    private int verifyAnswer() {
+        ImageButton backButton = findViewById(R.id.back_button);
+        ImageButton nextButton = findViewById(R.id.next_button);
+        Button cupButtonOne = findViewById(R.id.CupButtonONE);
+        Button cupButtonTwo = findViewById(R.id.CupButtonTWO);
+        Button cupButtonThree = findViewById(R.id.CupButtonTHREE);
+        Button yesButton = findViewById(R.id.YesButton);
+        Button noButton = findViewById(R.id.noButton);
+        TextView questionBody = findViewById(R.id.questionBody);
+        TextView choiceText = findViewById(R.id.choiceText);
+
+        String gender = Globals.currentUser.getSex();
+
+        if(choiceText.getText().equals(""))
+            return 2;
+
+        if (isGoodAnswerNo) {
+            if(choiceText.getText().equals("YES"))
+                return 0;
+        } else {
+            if(boolQuestion) {
+                if(choiceText.getText().equals("NO"))
+                    return 0;
+            } else {
+                if(choiceText.getText().equals(">5 cups"))
+                    return 0;
+                if(gender.equals("female")) {
+                    if(choiceText.getText().equals("3-5 cups"))
+                        return 0;
+                }
+
+            }
+
+        }
+        return 1;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -126,14 +183,23 @@ public class DonorFormActivity extends AppCompatActivity {
         TextView questionBody = findViewById(R.id.questionBody);
         TextView choiceText = findViewById(R.id.choiceText);
 
+
         Question question = Globals.allQuestions.stream().filter(q -> count == q.getQuestionOrder()).findAny().orElse(null);
         if (question == null) {
             Toast.makeText(DonorFormActivity.this, "No questions available.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(DonorFormActivity.this, HomeActivity.class));
         }
+
         assert question != null;
         Enums.AnswerType answerType = question.getAnswerType();
-        Boolean isGoodAnswerNo = question.isGoodAnswerNo();
+
+        isGoodAnswerNo = question.isGoodAnswerNo();
+        Log.e("isgoodAnswerno", ""+ question.isGoodAnswerNo());
+        if (question.getAnswerType() == bool) {
+            boolQuestion = true;
+        } else {
+            boolQuestion = false;
+        }
 
         questionBody.setText(question.getQuestionBody());
 
@@ -154,68 +220,8 @@ public class DonorFormActivity extends AppCompatActivity {
                 cupButtonThree.setVisibility(View.VISIBLE);
                 break;
         }
-//        switch (choiceText.getText().toString()) {
-//            case "YES":
-//                break;
-//            case "NO":
-//                break;
-//            case "1-2 cups":
-//                break;
-//            case "3-5 cups":
-//                break;
-//            case ">5 cups":
-//                break;
-//            default:
-//                choiceText.setText("Please choose an answer.");
-//
-//                break;
-//        }
 
 
-        if (answerType.equals(bool) && isGoodAnswerNo) {
-//            switch (choiceText.getText().toString()) {
-//                case "YES":
-//                    isQuestionnaireValid = false;
-//                    Log.e("ceva1",isQuestionnaireValid.toString());
-//                    break;
-//                case "NO":
-//
-//                    break;
-//                default:
-//                    choiceText.setText("Please choose an answer.");
-//                    break;
-//            }
-            Log.e("ceva1", isQuestionnaireValid.toString());
-        } else {
-            Log.e("ceva2", isQuestionnaireValid.toString());
-        }
-//        } else if (answerType.equals(bool)) {
-//            Log.e("ceva1",isQuestionnaireValid.toString());
-//            switch (choiceText.getText().toString()) {
-//                case "YES":
-//
-//                    break;
-//                case "NO":
-//                    isQuestionnaireValid = false;
-//                    Log.e("ceva2",isQuestionnaireValid.toString());
-//                    break;
-//                default:
-//                    choiceText.setText("Please choose an answer.");
-//                    break;
-//            }
-//        } else {
-//            Log.e("ceva1",isQuestionnaireValid.toString());
-////            switch (choiceText.getText().toString()) {
-////                case "1-2 cups":
-////                    break;
-////                case "3-5 cups":
-////                    break;
-////                case ">5 cups":
-////                    break;
-////                default:
-////                    choiceText.setText("Please choose an answer.");
-////                    break;
-//            }
-//        }
-        }}
+    }
+}
 

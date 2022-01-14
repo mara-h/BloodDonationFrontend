@@ -58,10 +58,11 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
+        android:background="#6EFF215D"
         android:hint="@string/password"
+        android:inputType="textPassword"
         android:textColorHint="@color/black"
-        android:textSize="20sp"
-        android:background="#6EFF215D" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/registerPasswordRetype"
@@ -73,6 +74,7 @@
         android:layout_marginBottom="10dp"
         android:layout_below="@id/registerPasswordInput"
         android:hint="@string/retype_password"
+        android:inputType="textPassword"
         android:textSize="20sp"
         android:textColorHint="@color/black"
         android:background="#6EFF215D" />

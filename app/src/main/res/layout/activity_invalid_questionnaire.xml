@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fadeScrollbars="false"
+    android:fadingEdge="vertical"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_drawable"
+    android:alpha="0.9"
+    tools:context="cg.example.blooddonationfrontend.view.DonorFormActivity">
+
+    <TextView
+        android:id="@+id/eligibleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ne pare rau. Nu sunteti eligibil pentru a dona sange."
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/goToHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:layout_centerInParent="true"
+        android:text="Home"
+        android:textColor="@color/black"
+        android:layout_below="@id/eligibleText"
+        android:layout_marginTop="80dp"/>
+</RelativeLayout>

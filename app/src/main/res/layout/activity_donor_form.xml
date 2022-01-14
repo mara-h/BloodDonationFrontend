@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="0dp"
+        android:layout_alignParentStart="true"
         android:orientation="horizontal">
 
         <ImageButton
@@ -37,7 +37,8 @@
         android:id="@+id/questionBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
         />
 
     <LinearLayout
@@ -45,22 +46,23 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_below="@+id/questionBody"
-        android:layout_marginStart="60dp">
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="80dp">
         <Button
             android:id="@+id/noButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NO"
-            android:background="@color/white"
+            android:backgroundTint="@color/white"
             android:visibility="gone"/>
 
         <Button
             android:id="@+id/YesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_marginStart="60dp"
             android:text="YES"
+            android:backgroundTint="@color/white"
             android:visibility="gone"/>
     </LinearLayout>
 
@@ -70,14 +72,14 @@
         android:layout_alignParentEnd="true"
         android:gravity="bottom">
 
-    <ImageButton
-        android:id="@+id/next_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/next"
-        android:scaleType="fitXY"
-        android:src="@drawable/next"
-        />
+        <ImageButton
+            android:id="@+id/next_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/next"
+            android:backgroundTint="@color/white"
+            android:scaleType="fitXY"
+            android:src="@drawable/next" />
     </LinearLayout>
 
     <LinearLayout
@@ -86,14 +88,15 @@
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:layout_below="@+id/questionBody"
+        android:layout_marginTop="80dp"
         android:layout_marginStart="60dp">
         <Button
             android:id="@+id/CupButtonONE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_marginStart="60dp"
             android:text="1-2 pahare"
+            android:backgroundTint="@color/white"
             android:layout_marginBottom="20dp"
             android:visibility="gone"
             />
@@ -102,9 +105,9 @@
             android:id="@+id/CupButtonTWO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_marginStart="60dp"
             android:text="3-5 pahare"
+            android:backgroundTint="@color/white"
             android:layout_marginBottom="20dp"
             android:visibility="gone"
             />
@@ -113,9 +116,9 @@
             android:id="@+id/CupButtonTHREE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_marginStart="60dp"
             android:text=">5 pahare"
+            android:backgroundTint="@color/white"
             android:visibility="gone"
             />
     </LinearLayout>
@@ -124,6 +127,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/questionBody"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
         android:id="@+id/choiceText"/>
 
 

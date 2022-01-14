@@ -37,8 +37,19 @@ public class Globals {
 
     public static List<Question> allQuestions;
 
+    public static Questionnaire currentQuestionnaire;
+
+    public static User questionnaireUser;
+
     public static void setQuestions(List<Question> allQuestions) {
         Globals.allQuestions = allQuestions;
     }
 
+    public static void setCurrentQuestionnaire(Questionnaire currentQuestionnaire) {
+        Globals.currentQuestionnaire = currentQuestionnaire;
+    }
+
+    public static void setQuestionnaireUser(User questionnaireUser) {
+        Globals.questionnaireUser = questionnaireUser;
+    }
 }

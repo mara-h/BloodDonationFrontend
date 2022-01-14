@@ -31,6 +31,7 @@
         android:id="@+id/answerCamera"
         android:backgroundTint="@color/white"
         android:visibility="invisible"
+        android:text="Donor Details"
         android:background="@color/white"
 
         />

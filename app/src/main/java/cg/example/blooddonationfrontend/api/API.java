@@ -1,6 +1,7 @@
 package cg.example.blooddonationfrontend.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import cg.example.blooddonationfrontend.model.Question;
 import cg.example.blooddonationfrontend.model.Questionnaire;
@@ -10,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface API {
     @POST("users/login")
@@ -29,4 +31,15 @@ public interface API {
     Call<Questionnaire> saveQuestionnaire(
             @Body Questionnaire questionnaire
     );
+
+    @GET("questionnaires/{id}")
+    Call<Questionnaire> getQuestionnaireData(
+            @Path("id") String id
+    );
+
+    @GET("users/{id}")
+    Call<User> getUserById(
+            @Path("id") String id
+    );
+
 }

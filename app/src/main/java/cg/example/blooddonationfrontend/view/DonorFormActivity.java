@@ -112,7 +112,7 @@ public class DonorFormActivity extends AppCompatActivity {
                         case 0:
                             Log.e("Answer", "Invalid questionnaire");
                             choiceText.setText("");
-                            startActivity(new Intent(DonorFormActivity.this, HomeActivity.class));
+                            startActivity(new Intent(DonorFormActivity.this, InvalidQuestionnaireActivity.class));
                             break;
                         case 1:
                             Log.e("Answer", "Valid questionnaire");

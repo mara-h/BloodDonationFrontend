@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fadeScrollbars="false"
+    android:fadingEdge="vertical"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_drawable"
+    android:alpha="0.9"
+    tools:context="cg.example.blooddonationfrontend.view.DonorFormActivity">
+
+    <LinearLayout
+        android:id="@+id/spinnerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/whiteback"
+            android:scaleType="fitXY"
+            android:src="@drawable/whiteback"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/questionnaireFirstNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#6EFF215D"
+        android:text="@string/fisrt_name"
+        android:textColorHint="@color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/questionnaireLastNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionnaireFirstNameInput"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#6EFF215D"
+        android:text="@string/last_name"
+        android:textColorHint="@color/black"
+        android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/questionnaireAgeInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionnaireLastNameInput"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#6EFF215D"
+        android:text="@string/age"
+        android:textColorHint="@color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/questionnaireCnpInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionnaireAgeInput"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#6EFF215D"
+        android:text="@string/cnp"
+        android:textColorHint="@color/black"
+        android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/questionnaireSexInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionnaireCnpInput"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="1dp"
+        android:background="#6EFF215D"
+        android:text="@string/sex"
+        android:textAlignment="gravity"
+        android:textColorHint="@color/black"
+        android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/questionnaireBloodGroupInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionnaireSexInput"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#6EFF215D"
+        android:dropDownSelector="@drawable/emailimg"
+        android:text="@string/blood_group_"
+        android:spinnerMode="dropdown"
+        android:visibility="visible"
+        android:textSize="20sp"
+        android:textColorHint="@color/black"/>
+
+    <EditText
+        android:id="@+id/questionnaireValid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionnaireBloodGroupInput"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#6EFF215D"
+        android:dropDownSelector="@drawable/emailimg"
+        android:text="Questionnaire date"
+        android:spinnerMode="dropdown"
+        android:visibility="visible"
+        android:textSize="20sp"
+        android:textColorHint="@color/black"/>
+
+</RelativeLayout>

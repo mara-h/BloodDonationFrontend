@@ -1,6 +1,9 @@
 package cg.example.blooddonationfrontend.model;
 
+import java.util.UUID;
+
 public class User {
+    private UUID id;
     private String firstName, lastName, email, password, cnp, age, sex, bloodGroup;
 
     public User(String firstName, String lastName, String email, String password, String cnp, String age, String sex, String bloodGroup) {
@@ -88,11 +91,11 @@ public class User {
     }
 
 
+    public UUID getId() {
+        return id;
+    }
 
-
-
-
-
-
-
+    public void setId(UUID id) {
+        this.id = id;
+    }
 }

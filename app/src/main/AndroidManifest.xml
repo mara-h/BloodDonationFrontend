@@ -31,6 +31,8 @@
         <activity android:name="cg.example.blooddonationfrontend.view.DonorFormActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.QRActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.DonorProfileActivity"/>
+        <activity android:name=".view.InvalidQuestionnaireActivity"/>
+        <activity android:name=".view.AdminDonorResultsActivity"/>
 
     </application>
 </manifest>

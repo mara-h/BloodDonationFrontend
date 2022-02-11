@@ -9,7 +9,7 @@ public class Question {
     private int questionOrder;
     private Enums.AnswerType answerType;
     private Enums.Sex genderSpecific;
-    private boolean isGoodAnswerNo;
+    private Boolean goodAnswerNo;
 
     public Question() {
     }
@@ -19,7 +19,7 @@ public class Question {
         this.questionOrder = questionOrder;
         this.answerType = answerType;
         this.genderSpecific = genderSpecificQuestion; // if null/empty -> used for both
-        this.isGoodAnswerNo = isGoodAnswerNo;
+        this.goodAnswerNo = isGoodAnswerNo;
     }
 
     public UUID getId() {
@@ -62,11 +62,11 @@ public class Question {
         this.genderSpecific = genderSpecific;
     }
 
-    public boolean isGoodAnswerNo() {
-        return isGoodAnswerNo;
+    public Boolean isGoodAnswerNo() {
+        return goodAnswerNo;
     }
 
-    public void setGoodAnswerNo(boolean goodAnswerNo) {
-        isGoodAnswerNo = goodAnswerNo;
+    public void setGoodAnswerNo(Boolean goodAnswerNo) {
+        goodAnswerNo = goodAnswerNo;
     }
 }

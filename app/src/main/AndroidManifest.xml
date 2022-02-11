@@ -14,13 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BloodDonationFrontend">
-        <activity android:name="cg.example.blooddonationfrontend.view.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name="cg.example.blooddonationfrontend.view.LoginActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.RegisterActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.HomeActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.AdminDonorDetailsActivity"/>
@@ -33,6 +27,13 @@
         <activity android:name="cg.example.blooddonationfrontend.view.DonorProfileActivity"/>
         <activity android:name=".view.InvalidQuestionnaireActivity"/>
         <activity android:name=".view.AdminDonorResultsActivity"/>
+        <activity android:name=".view.IntroductoryActivity"
+            android:exported="true">
+            <intent-filter>
+               <action android:name = "android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
     </application>
 </manifest>

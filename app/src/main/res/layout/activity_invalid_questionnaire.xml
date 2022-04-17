@@ -15,10 +15,12 @@
         android:id="@+id/eligibleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ne pare rau. Nu sunteti eligibil pentru a dona sange."
         android:layout_centerInParent="true"
+        android:text="Ne pare rau. Nu sunteti eligibil pentru a dona sange."
+        android:textSize="20dp"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/goToHome"

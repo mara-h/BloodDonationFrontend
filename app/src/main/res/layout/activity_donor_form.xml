@@ -7,7 +7,7 @@
     android:fadeScrollbars="false"
     android:fadingEdge="vertical"
     android:orientation="vertical"
-    android:background="@drawable/gradient_drawable"
+    android:background="@drawable/gradient_drawable2"
     android:alpha="0.9"
     tools:context="cg.example.blooddonationfrontend.view.DonorFormActivity">
 
@@ -15,8 +15,8 @@
         android:id="@+id/spinnerLayout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <ImageButton
@@ -38,8 +38,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="300dp"
+        android:textColor="@color/black"
+        android:textSize="10pt" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -52,7 +54,8 @@
             android:id="@+id/noButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NO"
+            android:text="NU"
+            android:textColor="@color/black"
             android:backgroundTint="@color/white"
             android:visibility="gone"/>
 
@@ -61,7 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:text="YES"
+            android:text="DA"
+            android:textColor="@color/black"
             android:backgroundTint="@color/white"
             android:visibility="gone"/>
     </LinearLayout>
@@ -70,12 +74,15 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp"
         android:gravity="bottom">
 
         <ImageButton
             android:id="@+id/next_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/next"
             android:backgroundTint="@color/white"
             android:scaleType="fitXY"
@@ -96,6 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:text="1-2 pahare"
+            android:textColor="@color/black"
             android:backgroundTint="@color/white"
             android:layout_marginBottom="20dp"
             android:visibility="gone"
@@ -107,6 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:text="3-5 pahare"
+            android:textColor="@color/black"
             android:backgroundTint="@color/white"
             android:layout_marginBottom="20dp"
             android:visibility="gone"
@@ -118,18 +127,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:text=">5 pahare"
+            android:textColor="@color/black"
             android:backgroundTint="@color/white"
             android:visibility="gone"
             />
     </LinearLayout>
 
     <TextView
+        android:id="@+id/choiceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/questionBody"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/choiceText"/>
+        android:layout_marginTop="10dp" />
 
 
 

@@ -3,9 +3,11 @@ package cg.example.blooddonationfrontend.view;
 import static cg.example.blooddonationfrontend.model.Enums.AnswerType.bool;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -60,6 +62,7 @@ public class DonorFormActivity extends AppCompatActivity {
         Button noButton = findViewById(R.id.noButton);
         TextView questionBody = findViewById(R.id.questionBody);
         TextView choiceText = findViewById(R.id.choiceText);
+        choiceText.setVisibility(View.INVISIBLE);
 
         if (Globals.allQuestions == null) {
             Toast.makeText(DonorFormActivity.this, "No questions available.", Toast.LENGTH_LONG).show();
@@ -70,9 +73,7 @@ public class DonorFormActivity extends AppCompatActivity {
 
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                choiceText.setText("YES");
-            }
+            public void onClick(View view) { choiceText.setText("YES"); }
         });
 
         noButton.setOnClickListener(new View.OnClickListener() {
@@ -229,6 +230,7 @@ public class DonorFormActivity extends AppCompatActivity {
         }
 
         questionBody.setText(question.getQuestionBody());
+        questionBody.setGravity(Gravity.CENTER);
 
         switch (answerType) {
             case bool:

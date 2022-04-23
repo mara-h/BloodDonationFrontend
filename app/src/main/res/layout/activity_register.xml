@@ -17,7 +17,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="#6EFF215D"
-        android:hint="@string/fisrt_name"
+        android:hint="@string/first_name"
         android:textColorHint="@color/black"
         android:textSize="20sp" />
 

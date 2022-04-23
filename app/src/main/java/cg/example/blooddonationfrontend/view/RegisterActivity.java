@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -134,25 +133,19 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 }
             }
-
-
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 Colector = "UNKNOWN";
             }
         });
-
         findViewById(R.id.registerBtn).setOnClickListener(view -> registerUser());
         System.out.println("register");
-
     }
 
 
     private void registerUser() {
         HashMap<EditText, String> inputs = new HashMap<>();
         boolean isError = false;
-
         String firstNameString = firstName.getText().toString().trim();
         String lastNameString = lastName.getText().toString().trim();
         String emailString = email.getText().toString().trim();

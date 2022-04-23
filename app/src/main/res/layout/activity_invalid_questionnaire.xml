@@ -31,5 +31,5 @@
         android:text="Home"
         android:textColor="@color/black"
         android:layout_below="@id/eligibleText"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="50dp"/>
 </RelativeLayout>

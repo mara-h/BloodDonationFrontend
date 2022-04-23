@@ -30,9 +30,9 @@ public class IntroductoryActivity extends AppCompatActivity {
         text = findViewById(R.id.text);
         lottieAnimationView = findViewById(R.id.lottie);
 
-        logo.animate().translationY(-1600).setDuration(3000).setStartDelay(4000);
-        text.animate().translationY(-1600).setDuration(3000).setStartDelay(4000);
-        lottieAnimationView.animate().translationY(1400).setDuration(3000).setStartDelay(4000);
+        logo.animate().translationY(-1600).setDuration(2000).setStartDelay(2000);
+        text.animate().translationY(-1600).setDuration(2000).setStartDelay(2000);
+        lottieAnimationView.animate().translationY(1400).setDuration(3000).setStartDelay(3000);
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -42,7 +42,7 @@ public class IntroductoryActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 6000);
+        }, 2000);
 
     }
 }

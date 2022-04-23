@@ -33,8 +33,8 @@
         android:background="#6EFF215D"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
-        android:padding="20dp"
         android:hint="@string/e_mail"
+        android:padding="20dp"
         android:textColorHint="@color/white"
         tools:ignore="TextContrastCheck" />
 

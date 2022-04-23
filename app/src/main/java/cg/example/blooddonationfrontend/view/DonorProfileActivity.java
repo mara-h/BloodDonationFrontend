@@ -25,8 +25,8 @@ public class DonorProfileActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_donor_profile);
         ImageButton backButton = findViewById(R.id.back_button);
-        EditText firstName = findViewById(R.id.registerFirstNameInput);
-        EditText lastName = findViewById(R.id.registerLastNameInput);
+        EditText name = findViewById(R.id.registerNameInput);
+        //EditText lastName = findViewById(R.id.registerLastNameInput);
         EditText email = findViewById(R.id.registerEmailInput);
         EditText age = findViewById(R.id.ageInput);
         EditText cnp = findViewById(R.id.cnpInput);
@@ -34,8 +34,9 @@ public class DonorProfileActivity extends AppCompatActivity {
         EditText bloodGroup = findViewById(R.id.bloodGroupInput);
 
 
-        firstName.setText(Globals.currentUser.getFirstName());
-        lastName.setText(Globals.currentUser.getLastName());
+//        firstName.setText(Globals.currentUser.getFirstName());
+        name.setText(Globals.currentUser.getFirstName() +" "+ Globals.currentUser.getLastName());
+      //  lastName.setText(Globals.currentUser.getLastName());
         email.setText(Globals.currentUser.getEmail());
         age.setText(Globals.currentUser.getAge());
         cnp.setText(Globals.currentUser.getCnp());

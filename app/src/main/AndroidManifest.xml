@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
 
     <application
         android:allowBackup="true"
@@ -20,6 +24,7 @@
         <activity android:name="cg.example.blooddonationfrontend.view.AdminDonorDetailsActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.AdminHomeActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.AppointmentActivity"/>
+        <activity android:name="cg.example.blooddonationfrontend.view.AppointmentViewActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.CameraActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.DonationInfoActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.DonorFormActivity"/>

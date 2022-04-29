@@ -131,7 +131,6 @@ public class CameraActivity extends AppCompatActivity {
 
                 if(success) {
                     User questionnaireUser = response.body();
-
                     Globals.setQuestionnaireUser(questionnaireUser);
                     startActivity(new Intent(CameraActivity.this, AdminDonorResultsActivity.class));
                 } else {

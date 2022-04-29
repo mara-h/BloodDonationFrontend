@@ -66,11 +66,11 @@
                 app:boxBackgroundColor="#6EFF215D">
 
                 <EditText
-                    android:id="@+id/email"
+                    android:id="@+id/registerEmailInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/email"
+                    android:hint="@string/e_mail"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:paddingStart="5dp"

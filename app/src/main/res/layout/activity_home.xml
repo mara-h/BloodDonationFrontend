@@ -108,5 +108,4 @@
       android:textColor="@color/black"
       android:minHeight="48dp"/>
  </LinearLayout>
-
 </LinearLayout>

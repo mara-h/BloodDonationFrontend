@@ -45,7 +45,6 @@ public class QRActivity extends AppCompatActivity {
 
         ImageView qrCodeIV = findViewById(R.id.qrCodeImageView);
         Button generateQrCode = findViewById(R.id.generateQRButton);
-
         ImageButton backButton = findViewById(R.id.back_button);
 
         if (getIntent().getExtras() != null) {
@@ -90,13 +89,9 @@ public class QRActivity extends AppCompatActivity {
                         // exception handling.
                         Log.e("Tag", e.toString());
                     }
-
                 }
-
             }
         });
-
-
     }
 
     //TODO: get qr code

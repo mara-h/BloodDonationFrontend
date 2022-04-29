@@ -171,8 +171,8 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
 
-        if (sexString.getText().toString().equals("") || sexString.getText().toString().equals("Please select your sex.")) {
-            sexString.setText("Please select your sex.");
+        if (sexString.getText().toString().equals("") || sexString.getText().toString().equals("Selectați sexul")) {
+            sexString.setText("Selectați sexul.");
             isError = true;
         }
 

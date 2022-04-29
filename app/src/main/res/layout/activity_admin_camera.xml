@@ -29,10 +29,8 @@
         android:layout_gravity="bottom"
         android:gravity="center"
         android:id="@+id/answerCamera"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="#dcdcdc"
         android:visibility="invisible"
         android:text="Donor Details"
-        android:background="@color/white"
-
-        />
+        android:textColor="@color/black" />
 </FrameLayout>

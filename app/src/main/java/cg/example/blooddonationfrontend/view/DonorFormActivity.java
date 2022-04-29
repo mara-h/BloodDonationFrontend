@@ -192,9 +192,7 @@ public class DonorFormActivity extends AppCompatActivity {
                     if (choiceText.getText().equals("3-5 cups"))
                         return 0;
                 }
-
             }
-
         }
         return 1;
     }

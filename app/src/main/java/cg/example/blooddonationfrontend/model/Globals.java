@@ -43,6 +43,8 @@ public class Globals {
 
     public static Boolean canGenerate;
 
+    public static Appointment currentAppointment;
+
     public static void setQuestions(List<Question> allQuestions) {
         Globals.allQuestions = allQuestions;
     }
@@ -57,5 +59,10 @@ public class Globals {
 
     public static void setCanGenerate(Boolean canGenerate) {
         Globals.canGenerate = canGenerate;
+    }
+
+    //adaugata de mine, nu stiu daca e ok
+    public static void setCurrentAppointment(Appointment currentAppointment) {
+        Globals.currentAppointment = currentAppointment;
     }
 }

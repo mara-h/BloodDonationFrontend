@@ -126,7 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:text=">5 pahare"
+            android:text=" > 5 pahare"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
             android:visibility="gone"

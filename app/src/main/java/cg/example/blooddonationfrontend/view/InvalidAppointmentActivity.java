@@ -6,14 +6,14 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import cg.example.blooddonationfrontend.R;
 
-public class AdminHomeActivity extends AppCompatActivity {
+public class InvalidAppointmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,26 +21,20 @@ public class AdminHomeActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_admin_home);
+        setContentView(R.layout.appointment_invalid);
 
-        //ImageButton scanQr = findViewById(R.id.scanQr);
-        //ImageButton logout = findViewById(R.id.logout);
+        TextView text = findViewById(R.id.textInvalidAppointment);
 
-        CardView qrScanCard = findViewById(R.id.qrScanCard);
-        CardView logoutCard = findViewById(R.id.logoutCardAdmin);
+        ImageButton backButton = findViewById(R.id.back_button);
 
-        qrScanCard.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdminHomeActivity.this, CameraActivity.class));
+                startActivity(new Intent(InvalidAppointmentActivity.this, HomeActivity.class));
             }
         });
 
-        logoutCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(AdminHomeActivity.this, LoginActivity.class));
-            }
-        });
     }
+
+
 }

@@ -42,4 +42,8 @@ dependencies {
     implementation 'com.budiyev.android:code-scanner:2.1.0'
     implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
     implementation 'com.airbnb.android:lottie:3.4.1'
+
+
+
+
 }

@@ -1,68 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     android:background="@android:color/white"
-    android:focusableInTouchMode="true"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".view.AppointmentActivity">
 
-    <LinearLayout
-        android:id="@+id/spinnerLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="0dp"
-        android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:padding="20dp"
+        android:background="@drawable/gradient_drawable2">
 
-        <ImageButton
-            android:id="@+id/back_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
+        <LinearLayout
+            android:id="@+id/spinnerLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/back"
-            android:scaleType="fitXY"
-            android:src="@drawable/back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/white_back"
+                android:scaleType="fitXY"
+                android:src="@drawable/white_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/imageappointment"
-        android:layout_width="230dp"
-        android:layout_height="230dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/appointmentimg" />
+        <ImageView
+            android:id="@+id/imageappointment"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/appointmentwhite" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageappointment"
-        android:text="@string/select_appointment_time"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageappointment"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/select_appointment_time"
+            android:textColor="@color/white"
+            android:textSize="26sp" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="60dp"
         android:orientation="horizontal">
 
         <Spinner
             android:id="@+id/hourSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|start"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start"
             android:layout_marginTop="200dp"
             android:layout_weight="1"
             android:background="@drawable/emailimg"
@@ -71,9 +84,9 @@
 
         <Spinner
             android:id="@+id/minuteSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|end"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
             android:layout_marginTop="200dp"
             android:layout_weight="1"
             android:background="@drawable/emailimg"
@@ -86,16 +99,15 @@
         android:id="@+id/makeAppointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerLayout"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         android:layout_marginStart="4dp"
         android:layout_marginTop="-81dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="#FF215D"
-        android:textColor="@color/white"
         android:gravity="center"
-        android:text="@string/make_appointment" />
+        android:text="@string/make_appointment"
+        android:textColor="@color/white" />
 
-
-</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

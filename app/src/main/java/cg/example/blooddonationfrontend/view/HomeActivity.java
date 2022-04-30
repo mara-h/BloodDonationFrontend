@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import java.util.List;
 
@@ -33,41 +34,39 @@ public class HomeActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_home);
-        ImageButton donorForm = findViewById(R.id.donorForm);
-        ImageButton donorProfile = findViewById(R.id.donorProfile);
-        ImageButton appointment = findViewById(R.id.appointment);
-        //ImageButton donationInfo = findViewById(R.id.donationInfo);
-        ImageButton logout = findViewById(R.id.logout);
+//        ImageButton donorForm = findViewById(R.id.donorForm);
+//        ImageButton donorProfile = findViewById(R.id.donorProfile);
+//        ImageButton appointment = findViewById(R.id.appointment);
+//        //ImageButton donationInfo = findViewById(R.id.donationInfo);
+//        ImageButton logout = findViewById(R.id.logout);
+
+        CardView questionnaireCard = findViewById(R.id.questionnaireCard);
+        CardView profileCard = findViewById(R.id.profileCard);
+        CardView appointmentCard = findViewById(R.id.appointmentCard);
+        CardView logoutCard = findViewById(R.id.logoutCard);
 
         //Globals.setQuestions(null);
         this.getQuestions();
 
-        donorForm.setOnClickListener(new View.OnClickListener() {
+        questionnaireCard.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 if(Globals.canGenerate) {
                     startActivity(new Intent(HomeActivity.this, DonorFormActivity.class));
                 } else {
                     Toast.makeText(HomeActivity.this, "Questionnaire is not available. You cannot donate blood.", Toast.LENGTH_LONG).show();
-                }
+               }
             }
         });
 
-        donorProfile.setOnClickListener(new View.OnClickListener() {
+        profileCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, DonorProfileActivity.class));
             }
         });
 
-//        donationInfo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(HomeActivity.this, DonationInfoActivity.class));
-//            }
-//        });
-
-        logout.setOnClickListener(new View.OnClickListener() {
+        logoutCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Globals.setCanGenerate(true);
@@ -75,10 +74,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        appointment.setOnClickListener(new View.OnClickListener() {
+        appointmentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, AppointmentActivity.class));
+                if (Globals.canGenerate) {
+                    startActivity(new Intent(HomeActivity.this, InvalidAppointmentActivity.class));
+
+                } else {
+                    startActivity(new Intent(HomeActivity.this, AppointmentActivity.class));
+                }
             }
         });
     }

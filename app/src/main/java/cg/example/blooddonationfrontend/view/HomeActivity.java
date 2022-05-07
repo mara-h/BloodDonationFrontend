@@ -34,16 +34,14 @@ public class HomeActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_home);
-//        ImageButton donorForm = findViewById(R.id.donorForm);
-//        ImageButton donorProfile = findViewById(R.id.donorProfile);
-//        ImageButton appointment = findViewById(R.id.appointment);
-//        //ImageButton donationInfo = findViewById(R.id.donationInfo);
-//        ImageButton logout = findViewById(R.id.logout);
+
 
         CardView questionnaireCard = findViewById(R.id.questionnaireCard);
         CardView profileCard = findViewById(R.id.profileCard);
         CardView appointmentCard = findViewById(R.id.appointmentCard);
         CardView logoutCard = findViewById(R.id.logoutCard);
+        CardView infoCard = findViewById(R.id.infoCard);
+        CardView mapsCard = findViewById(R.id.mapsCard);
 
         //Globals.setQuestions(null);
         this.getQuestions();
@@ -83,6 +81,20 @@ public class HomeActivity extends AppCompatActivity {
                 } else {
                     startActivity(new Intent(HomeActivity.this, AppointmentActivity.class));
                 }
+            }
+        });
+
+        infoCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, DonationInfoActivity.class));
+            }
+        });
+
+        mapsCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, GoogleMapsActivity.class));
             }
         });
     }

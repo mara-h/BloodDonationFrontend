@@ -35,6 +35,4 @@ public class InvalidAppointmentActivity extends AppCompatActivity {
         });
 
     }
-
-
 }

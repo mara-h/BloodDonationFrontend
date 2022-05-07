@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false"/>
@@ -31,6 +33,7 @@
         <activity android:name="cg.example.blooddonationfrontend.view.QRActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.DonorProfileActivity"/>
         <activity android:name="cg.example.blooddonationfrontend.view.InvalidAppointmentActivity"/>
+        <activity android:name="cg.example.blooddonationfrontend.view.GoogleMapsActivity"/>
         <activity android:name=".view.InvalidQuestionnaireActivity"/>
         <activity android:name=".view.AdminDonorResultsActivity"/>
         <activity android:name=".view.IntroductoryActivity"
@@ -40,6 +43,19 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA4c9j2LXA091Ial2s8J0pRN2pQLYORsKk"/>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
+
 
     </application>
 </manifest>

@@ -73,13 +73,23 @@ public class DonorFormActivity extends AppCompatActivity {
 
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { choiceText.setText("YES"); }
+            public void onClick(View view) {
+                choiceText.setText("YES");
+                yesButton.setBackgroundColor(yesButton.getContext().getResources().getColor(R.color.black));
+                yesButton.setTextColor(yesButton.getContext().getResources().getColor(R.color.white));
+                noButton.setBackgroundColor(noButton.getContext().getResources().getColor(R.color.white));
+                noButton.setTextColor(noButton.getContext().getResources().getColor(R.color.black));
+            }
         });
 
         noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 choiceText.setText("NO");
+                noButton.setBackgroundColor(noButton.getContext().getResources().getColor(R.color.black));
+                noButton.setTextColor(noButton.getContext().getResources().getColor(R.color.white));
+                yesButton.setBackgroundColor(yesButton.getContext().getResources().getColor(R.color.white));
+                yesButton.setTextColor(yesButton.getContext().getResources().getColor(R.color.black));
             }
         });
 
@@ -115,6 +125,10 @@ public class DonorFormActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                yesButton.setBackgroundColor(yesButton.getContext().getResources().getColor(R.color.white));
+                yesButton.setTextColor(yesButton.getContext().getResources().getColor(R.color.black));
+                noButton.setBackgroundColor(noButton.getContext().getResources().getColor(R.color.white));
+                noButton.setTextColor(noButton.getContext().getResources().getColor(R.color.black));
                 if (count == allQuestionsCount) {
                     //TODO: generate and save questionnaire
                     Questionnaire questionnaire = new Questionnaire();

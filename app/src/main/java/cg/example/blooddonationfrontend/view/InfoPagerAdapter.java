@@ -57,4 +57,7 @@ public class InfoPagerAdapter extends FragmentStateAdapter {
     public int getItemCount() {
         return 6;
     }
+
+
+
 }

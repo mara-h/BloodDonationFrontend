@@ -3,16 +3,17 @@ package cg.example.blooddonationfrontend.view;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
+import com.google.android.material.tabs.TabLayout;
 
 
 import cg.example.blooddonationfrontend.R;
 
 public class DonationInfoActivity extends AppCompatActivity {
     ViewPager2 viewPager;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +23,11 @@ public class DonationInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_donation_info);
 
         viewPager = findViewById(R.id.vpInfo);
+
         viewPager.setAdapter(new InfoPagerAdapter(getSupportFragmentManager(), getLifecycle()));
 
     }
+
 
 //    @Override
 //    public void onBackPressed() {

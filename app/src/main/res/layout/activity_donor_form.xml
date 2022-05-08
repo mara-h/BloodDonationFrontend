@@ -40,8 +40,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="300dp"
-        android:textColor="@color/black"
-        android:textSize="10pt" />
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -94,14 +95,14 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
+        android:gravity="center"
         android:layout_below="@+id/questionBody"
-        android:layout_marginTop="80dp"
-        android:layout_marginStart="60dp">
+        android:layout_marginTop="80dp">
         <Button
             android:id="@+id/CupButtonONE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
+
             android:text="1-2 pahare"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
@@ -113,7 +114,7 @@
             android:id="@+id/CupButtonTWO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
+
             android:text="3-5 pahare"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
@@ -125,7 +126,7 @@
             android:id="@+id/CupButtonTHREE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
+
             android:text=" > 5 pahare"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"

@@ -97,6 +97,12 @@ public class DonorFormActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 choiceText.setText("1-2 cups");
+                cupButtonOne.setBackgroundColor(cupButtonOne.getContext().getResources().getColor(R.color.black));
+                cupButtonOne.setTextColor(cupButtonOne.getContext().getResources().getColor(R.color.white));
+                cupButtonTwo.setBackgroundColor(cupButtonTwo.getContext().getResources().getColor(R.color.white));
+                cupButtonTwo.setTextColor(cupButtonTwo.getContext().getResources().getColor(R.color.black));
+                cupButtonThree.setBackgroundColor(cupButtonThree.getContext().getResources().getColor(R.color.white));
+                cupButtonThree.setTextColor(cupButtonThree.getContext().getResources().getColor(R.color.black));
             }
         });
 
@@ -104,6 +110,13 @@ public class DonorFormActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 choiceText.setText("3-5 cups");
+                choiceText.setText("1-2 cups");
+                cupButtonOne.setBackgroundColor(cupButtonOne.getContext().getResources().getColor(R.color.white));
+                cupButtonOne.setTextColor(cupButtonOne.getContext().getResources().getColor(R.color.black));
+                cupButtonTwo.setBackgroundColor(cupButtonTwo.getContext().getResources().getColor(R.color.black));
+                cupButtonTwo.setTextColor(cupButtonTwo.getContext().getResources().getColor(R.color.white));
+                cupButtonThree.setBackgroundColor(cupButtonThree.getContext().getResources().getColor(R.color.white));
+                cupButtonThree.setTextColor(cupButtonThree.getContext().getResources().getColor(R.color.black));
             }
         });
 
@@ -111,6 +124,13 @@ public class DonorFormActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 choiceText.setText(">5 cups");
+                choiceText.setText("1-2 cups");
+                cupButtonOne.setBackgroundColor(cupButtonOne.getContext().getResources().getColor(R.color.white));
+                cupButtonOne.setTextColor(cupButtonOne.getContext().getResources().getColor(R.color.black));
+                cupButtonTwo.setBackgroundColor(cupButtonTwo.getContext().getResources().getColor(R.color.white));
+                cupButtonTwo.setTextColor(cupButtonTwo.getContext().getResources().getColor(R.color.black));
+                cupButtonThree.setBackgroundColor(cupButtonThree.getContext().getResources().getColor(R.color.black));
+                cupButtonThree.setTextColor(cupButtonThree.getContext().getResources().getColor(R.color.white));
             }
         });
 

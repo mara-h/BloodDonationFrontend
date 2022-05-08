@@ -4,58 +4,72 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.autofocus"/>
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name2"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BloodDonationFrontend">
-        <activity android:name="cg.example.blooddonationfrontend.view.LoginActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.RegisterActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.HomeActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.AdminDonorDetailsActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.AdminHomeActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.AppointmentActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.AppointmentViewActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.CameraActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.DonationInfoActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.DonorFormActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.QRActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.DonorProfileActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.InvalidAppointmentActivity"/>
-        <activity android:name="cg.example.blooddonationfrontend.view.GoogleMapsActivity"/>
-        <activity android:name=".view.InvalidQuestionnaireActivity"/>
-        <activity android:name=".view.AdminDonorResultsActivity"/>
-        <activity android:name=".view.IntroductoryActivity"
+        android:theme="@style/Theme.BloodDonationFrontend"
+        android:usesCleartextTraffic="true">
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA4c9j2LXA091Ial2s8J0pRN2pQLYORsKk" />
+
+        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.RegisterActivity" />
+        <activity android:name=".view.HomeActivity" />
+        <activity android:name=".view.AdminDonorDetailsActivity" />
+        <activity android:name=".view.AdminHomeActivity" />
+        <activity android:name=".view.AppointmentActivity" />
+        <activity android:name=".view.AppointmentViewActivity" />
+        <activity android:name=".view.CameraActivity" />
+        <activity android:name=".view.DonationInfoActivity" />
+        <activity android:name=".view.DonorFormActivity" />
+        <activity android:name=".view.QRActivity" />
+        <activity android:name=".view.DonorProfileActivity" />
+        <activity android:name=".view.InvalidAppointmentActivity" />
+        <activity android:name=".view.MapsActivity" />
+        <activity android:name=".view.InvalidQuestionnaireActivity" />
+        <activity android:name=".view.AdminDonorResultsActivity" />
+        <activity
+            android:name=".view.IntroductoryActivity"
             android:exported="true">
             <intent-filter>
-               <action android:name = "android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyA4c9j2LXA091Ial2s8J0pRN2pQLYORsKk"/>
+            android:value="@integer/google_play_services_version" />
 
         <uses-library
             android:name="org.apache.http.legacy"
-            android:required="false"/>
-
-
+            android:required="false" />
     </application>
+
 </manifest>

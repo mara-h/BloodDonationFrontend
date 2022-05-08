@@ -7,12 +7,10 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.LocaleList;
 import android.provider.Settings;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethod;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,17 +18,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApi;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -44,7 +37,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import cg.example.blooddonationfrontend.R;
 
-public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     boolean isPermissionGranted;
     GoogleMap mGoogleMap;
@@ -66,12 +59,27 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
 
         initMap();
         mLocationClient = new FusedLocationProviderClient(this);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getCurrLoc();
-            }
-        });
+
+        Uri uri = Uri.parse("geo:0,0?q=45.737264,21.240134(Centrul Regional de Transfuzie Sanguină Timișoara)");
+                Intent locationIntent = new Intent(Intent.ACTION_VIEW, uri);
+                locationIntent.setPackage("com.google.android.apps.maps");
+                if(locationIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(locationIntent);
+                }
+
+
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //getCurrLoc();
+//                Uri uri = Uri.parse("geo:0,0?q=45.737264,21.240134(Centrul Regional de Transfuzie)");
+//                Intent locationIntent = new Intent(Intent.ACTION_VIEW, uri);
+//                locationIntent.setPackage("com.google.android.apps.maps");
+//                if(locationIntent.resolveActivity(getPackageManager()) != null) {
+//                    startActivity(locationIntent);
+//                }
+//            }
+//        });
 
 
     }
@@ -130,7 +138,7 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
         Dexter.withContext(this).withPermission(Manifest.permission.ACCESS_FINE_LOCATION).withListener(new PermissionListener() {
             @Override
             public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                Toast.makeText(GoogleMapsActivity.this, "Permission granted", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(MapsActivity.this, "Permission granted", Toast.LENGTH_SHORT).show();
                 isPermissionGranted = true;
             }
 

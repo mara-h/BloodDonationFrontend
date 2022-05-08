@@ -25,6 +25,7 @@
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_donor_form.xml" value="0.2" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_donor_profile.xml" value="0.264" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_edit_appointment.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_google_maps.xml" value="0.22864583333333333" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_home.xml" value="0.176" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_introductory.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_invalid_questionnaire.xml" value="0.159375" />
@@ -34,12 +35,14 @@
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_qr_generator.xml" value="0.152" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_scan_qr.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_transfusion_center_details.xml" value="0.22864583333333333" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/activity_view_appointment.xml" value="0.176" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/admin_donor_results.xml" value="0.264" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/appointment_invalid.xml" value="0.176" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/drawer_menu.xml" value="0.19427083333333334" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/ex.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/fragment_account.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/fragment_maps.xml" value="0.22864583333333333" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/info_fragment.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/menu.xml" value="0.19427083333333334" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/BloodDonationFrontend/app/src/main/res/layout/try1.xml" value="0.2" />

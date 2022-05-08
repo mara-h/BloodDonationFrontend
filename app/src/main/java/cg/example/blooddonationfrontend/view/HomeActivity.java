@@ -1,13 +1,10 @@
 package cg.example.blooddonationfrontend.view;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -20,7 +17,6 @@ import cg.example.blooddonationfrontend.R;
 import cg.example.blooddonationfrontend.api.RetrofitClient;
 import cg.example.blooddonationfrontend.model.Globals;
 import cg.example.blooddonationfrontend.model.Question;
-import cg.example.blooddonationfrontend.model.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -94,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
         mapsCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, GoogleMapsActivity.class));
+                startActivity(new Intent(HomeActivity.this, MapsActivity.class));
             }
         });
     }

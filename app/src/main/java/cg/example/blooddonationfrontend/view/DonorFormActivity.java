@@ -301,6 +301,7 @@ public class DonorFormActivity extends AppCompatActivity {
                     Globals.setCanGenerate(false);
                     Questionnaire crtQuestionnaire = response.body();
                     UUID id = crtQuestionnaire.getId();
+                    Globals.setCurrentQuestionnaire(crtQuestionnaire);
                     Intent intentQR = new Intent(DonorFormActivity.this, QRActivity.class);
                     intentQR.putExtra("id", id.toString());
                     startActivity(intentQR);

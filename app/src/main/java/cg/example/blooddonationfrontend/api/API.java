@@ -3,6 +3,8 @@ package cg.example.blooddonationfrontend.api;
 import java.util.List;
 import java.util.UUID;
 
+import cg.example.blooddonationfrontend.model.Appointment;
+import cg.example.blooddonationfrontend.model.Enums;
 import cg.example.blooddonationfrontend.model.Question;
 import cg.example.blooddonationfrontend.model.Questionnaire;
 import cg.example.blooddonationfrontend.model.User;
@@ -41,5 +43,18 @@ public interface API {
     Call<User> getUserById(
             @Path("id") String id
     );
+
+    //adauga eu
+    @GET("appointments")
+    Call<List<Appointment>> getAllAppointments();
+
+    @GET("appointments/available")
+    Call<List<String>> getAvailableHours();
+
+        @POST("appointments")
+         Call<Appointment> addAppointment(
+            @Body Appointment appointment
+         );
+
 
 }

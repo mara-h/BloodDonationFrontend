@@ -87,8 +87,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void initMap() {
         if(isPermissionGranted) {
             if (isGPSenable()) {
-                SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
-                supportMapFragment.getMapAsync(this);
+                //SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+                //supportMapFragment.getMapAsync(this);
             }
         }
     }

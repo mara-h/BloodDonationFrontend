@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
+
 import cg.example.blooddonationfrontend.R;
 
 public class InvalidAppointmentActivity extends AppCompatActivity {
@@ -24,13 +26,20 @@ public class InvalidAppointmentActivity extends AppCompatActivity {
         setContentView(R.layout.appointment_invalid);
 
         TextView text = findViewById(R.id.textInvalidAppointment);
-
+        MaterialButton goToQuestionnaire = findViewById(R.id.goToQuestionnaire);
         ImageButton backButton = findViewById(R.id.back_button);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(InvalidAppointmentActivity.this, HomeActivity.class));
+            }
+        });
+
+        goToQuestionnaire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(InvalidAppointmentActivity.this, DonorFormActivity.class));
             }
         });
 

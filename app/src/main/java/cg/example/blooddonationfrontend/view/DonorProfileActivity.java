@@ -26,21 +26,22 @@ public class DonorProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_donor_profile);
         ImageButton backButton = findViewById(R.id.back_button);
         EditText name = findViewById(R.id.registerNameInput);
-        //EditText lastName = findViewById(R.id.registerLastNameInput);
         EditText email = findViewById(R.id.registerEmailInput);
         EditText age = findViewById(R.id.ageInput);
         EditText cnp = findViewById(R.id.cnpInput);
         EditText sex = findViewById(R.id.sexInput);
         EditText bloodGroup = findViewById(R.id.bloodGroupInput);
 
-
-//        firstName.setText(Globals.currentUser.getFirstName());
         name.setText(Globals.currentUser.getFirstName() +" "+ Globals.currentUser.getLastName());
-      //  lastName.setText(Globals.currentUser.getLastName());
         email.setText(Globals.currentUser.getEmail());
         age.setText(Globals.currentUser.getAge());
         cnp.setText(Globals.currentUser.getCnp());
-        sex.setText(Globals.currentUser.getSex());
+        //sex.setText(Globals.currentUser.getSex());
+        if(Globals.currentUser.getSex().equals("male"))
+            sex.setText("masculin");
+        else
+            sex.setText("feminin");
+
         String bg = Globals.currentUser.getBloodGroup();
         switch(bg) {
             case "Aplus":
@@ -68,7 +69,7 @@ public class DonorProfileActivity extends AppCompatActivity {
                 bloodGroup.setText("0-");
                 break;
             default:
-                bloodGroup.setText("UNKNOWN");
+                bloodGroup.setText("necunoscut");
                 break;
         }
 

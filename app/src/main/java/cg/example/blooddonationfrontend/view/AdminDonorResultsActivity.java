@@ -28,8 +28,6 @@ public class AdminDonorResultsActivity extends AppCompatActivity {
         setContentView(R.layout.admin_donor_results);
 
         ImageButton backButton = findViewById(R.id.back_button);
-       // ImageView image = findViewById(R.id.imageResults);
-       // TextView firstName = findViewById(R.id.questionnaireFirstNameInput);
         TextView name = findViewById(R.id.questionnaireNameInput);
         TextView age = findViewById(R.id.questionnaireAgeInput);
         TextView cnp = findViewById(R.id.questionnaireCnpInput);
@@ -37,12 +35,17 @@ public class AdminDonorResultsActivity extends AppCompatActivity {
         TextView bloodGroup = findViewById(R.id.questionnaireBloodGroupInput);
         TextView date = findViewById(R.id.questionnaireValid);
 
-      //  firstName.setText("First name: " + Globals.questionnaireUser.getFirstName());
-        //lastName.setText("Last name: " + Globals.questionnaireUser.getLastName());
         name.setText(Globals.questionnaireUser.getFirstName() + " " + Globals.questionnaireUser.getLastName());
         age.setText(Globals.questionnaireUser.getAge());
         cnp.setText(Globals.questionnaireUser.getCnp());
-        sex.setText(Globals.questionnaireUser.getSex());
+        //sex.setText(Globals.questionnaireUser.getSex());
+        if(Globals.questionnaireUser.getSex().equals("male")){
+            sex.setText("masculin");
+        } else {
+            sex.setText("feminin");
+        }
+
+
         String bg = Globals.questionnaireUser.getBloodGroup();
         switch(bg) {
             case "Aplus":

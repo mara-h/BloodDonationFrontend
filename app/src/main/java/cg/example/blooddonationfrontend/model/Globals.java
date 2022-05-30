@@ -41,7 +41,7 @@ public class Globals {
 
     public static User questionnaireUser;
 
-    public static Boolean canGenerate;
+    public static Boolean canGenerate = false;
 
     public static Appointment currentAppointment;
 

@@ -12,4 +12,17 @@ public class Enums {
         male,
         female
     }
+
+    public enum Hours {
+        h0830,
+        h0900,
+        h0930,
+        h1000,
+        h1030,
+        h1100,
+        h1130,
+        h1200,
+        h1230,
+        h1300
+    }
 }

@@ -5,7 +5,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static final String BASE_URL = "https://blood-donation-chs.herokuapp.com/";
-    //private static final String BASE_URL = " http://110.0.2.2:8080/";
     private static RetrofitClient mInstance;
     private Retrofit retrofit;
 

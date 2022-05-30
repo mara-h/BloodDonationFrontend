@@ -8,9 +8,6 @@
     android:background="@drawable/gradient_drawable2"
     tools:context=".view.AppointmentViewActivity">
 
-
-
-
         <androidx.cardview.widget.CardView
             android:layout_width="300dp"
             android:layout_height="300dp"
@@ -57,12 +54,6 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"/>
 
-
-
-
             </LinearLayout>
-
-
         </androidx.cardview.widget.CardView>
-
 </LinearLayout>

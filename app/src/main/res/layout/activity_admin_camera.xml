@@ -31,6 +31,6 @@
         android:id="@+id/answerCamera"
         android:backgroundTint="#dcdcdc"
         android:visibility="invisible"
-        android:text="Donor Details"
+        android:text="Informații despre donator"
         android:textColor="@color/black" />
 </FrameLayout>

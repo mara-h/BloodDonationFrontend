@@ -42,7 +42,6 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_camera);
         Button answerCamera = findViewById(R.id.answerCamera);
 
-
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
         mCodeScanner = new CodeScanner(this, scannerView);
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
@@ -64,16 +63,13 @@ public class CameraActivity extends AppCompatActivity {
                 mCodeScanner.startPreview();
             }
         });
-
         answerCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getQuestionnaireData();
-
             }
         });
     }
-
 
     @Override
     protected void onResume() {
@@ -109,7 +105,6 @@ public class CameraActivity extends AppCompatActivity {
                     Toast.makeText(CameraActivity.this, "Error getting questionnaire.", Toast.LENGTH_LONG).show();
                 }
             }
-
             public void onFailure(Call<Questionnaire> call, Throwable t) {
                 Toast.makeText(CameraActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
                 System.out.println("failure: " + t.getMessage());

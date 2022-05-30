@@ -43,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Spinner bloodGroupInput;
     private InputValidator inputValidator = new InputValidator();
     String Colector = "";
+    String sex="";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,20 +68,20 @@ public class RegisterActivity extends AppCompatActivity {
 
         female.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String display = "female";
+                String display = "feminin";
                 sexString.setText(display);
             }
         });
 
         male.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String display = "male";
+                String display = "masculin";
                 sexString.setText(display);
             }
         });
 
         List<String> bloodGroups = new ArrayList<>();
-        bloodGroups.add("Select blood group");
+        bloodGroups.add("Selectați grupa de sânge");
         bloodGroups.add("A+");
         bloodGroups.add("A-");
         bloodGroups.add("B+");
@@ -89,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
         bloodGroups.add("AB-");
         bloodGroups.add("0+");
         bloodGroups.add("0-");
-        bloodGroups.add("UNKNOWN");
+        bloodGroups.add("necunoscut");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, bloodGroups);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -97,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
         bloodGroupInput.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                if (adapterView.getItemAtPosition(position).equals("Select blood group")) {
+                if (adapterView.getItemAtPosition(position).equals("Selectați grupa de sânge")) {
                     Colector = "UNKNOWN";
                 } else {
                     String item = adapterView.getItemAtPosition(position).toString();
@@ -178,7 +179,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (!inputs.get(retypePassword).isEmpty()) {
             if (!inputValidator.doStringsMatch(passwordString, retypePasswordString)) {
-                inputValidator.setFieldError(retypePassword, "Passwords do not match");
+                inputValidator.setFieldError(retypePassword, "Parolele nu se potrivesc.");
                 isError = true;
             } else {
                 isError = false;
@@ -189,7 +190,14 @@ public class RegisterActivity extends AppCompatActivity {
         Log.e("CEVAAA", firstName.getText().toString());
         if (!isError)
 
-            this.makeCall(new User(firstNameString, lastNameString, emailString, passwordString, cnpString, ageString, sexString.getText().toString(), Colector));
+
+        if(sexString.getText().toString().equals("masculin")) {
+            sex = "male";
+        } else {
+            sex = "female";
+        }
+
+            this.makeCall(new User(firstNameString, lastNameString, emailString, passwordString, cnpString, ageString, sex, Colector));
 
     }
 

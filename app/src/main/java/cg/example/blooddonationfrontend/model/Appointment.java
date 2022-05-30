@@ -4,8 +4,8 @@ import java.util.UUID;
 
 public class Appointment {
     private UUID id;
-    private UUID questionnaire;
-    private UUID user;
+    private UUID questionnaireId;
+    private UUID userId;
     private String dayOfAppointment;
     private String hourOfAppointment;
 
@@ -14,8 +14,8 @@ public class Appointment {
 
     public Appointment(UUID id, String dayOfAppointment, String hourOfAppointment, UUID questionnaire, UUID user) {
         this.id = id;
-        this.questionnaire = questionnaire;
-        this.user = user;
+        this.questionnaireId = questionnaire;
+        this.userId = user;
         this.dayOfAppointment = dayOfAppointment;
         this.hourOfAppointment = hourOfAppointment;
     }
@@ -29,19 +29,19 @@ public class Appointment {
     }
 
     public UUID getQuestionnaire() {
-        return questionnaire;
+        return questionnaireId;
     }
 
     public void setQuestionnaire(UUID questionnaire) {
-        this.questionnaire = questionnaire;
+        this.questionnaireId = questionnaire;
     }
 
     public UUID getUser() {
-        return user;
+        return userId;
     }
 
     public void setUser(UUID user) {
-        this.user = user;
+        this.userId = user;
     }
 
     public String getDayOfAppointment() {

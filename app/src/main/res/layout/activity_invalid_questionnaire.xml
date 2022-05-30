@@ -11,6 +11,28 @@
     android:alpha="0.9"
     tools:context="cg.example.blooddonationfrontend.view.DonorFormActivity">
 
+    <LinearLayout
+        android:id="@+id/spinnerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/white_back"
+            android:scaleType="fitXY"
+            android:src="@drawable/white_back"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/eligibleText"
         android:layout_width="wrap_content"

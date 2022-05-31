@@ -44,13 +44,15 @@ public class QRActivity extends AppCompatActivity {
         setContentView(R.layout.activity_qr_generator);
 
         ImageView qrCodeIV = findViewById(R.id.qrCodeImageView);
-        Button generateQrCode = findViewById(R.id.generateQRButton);
+        //Button generateQrCode = findViewById(R.id.generateQRButton);
         ImageButton backButton = findViewById(R.id.back_button);
 
         if (getIntent().getExtras() != null) {
            String stringId = getIntent().getStringExtra("id");
            id = UUID.fromString(stringId);
         }
+
+        generateQR();
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,40 +61,70 @@ public class QRActivity extends AppCompatActivity {
             }
         });
 
-        generateQrCode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (id == null) {
-                    Toast.makeText(QRActivity.this, "Sorry, there was a problem generating the QR code.", Toast.LENGTH_LONG).show();
-                } else {
-                    WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
-                    Display display = manager.getDefaultDisplay();
-
-                    Point point = new Point();
-                    display.getSize(point);
-
-                    int width = point.x;
-                    int height = point.y;
-
-                    int dimen = width < height ? width : height;
-                    dimen = dimen * 3 / 4;
-
-                    qrgEncoder = new QRGEncoder(id.toString(), null, QRGContents.Type.TEXT, dimen);
-                    try {
-                        // getting our qrcode in the form of bitmap.
-                        bitmap = qrgEncoder.encodeAsBitmap();
-                        // the bitmap is set inside our image
-                        // view using .setimagebitmap method.
-                        qrCodeIV.setImageBitmap(bitmap);
-                    } catch (WriterException e) {
-                        // this method is called for
-                        // exception handling.
-                        Log.e("Tag", e.toString());
-                    }
-                }
-            }
-        });
+//        generateQrCode.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (id == null) {
+//                    Toast.makeText(QRActivity.this, "Sorry, there was a problem generating the QR code.", Toast.LENGTH_LONG).show();
+//                } else {
+//                    WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
+//                    Display display = manager.getDefaultDisplay();
+//
+//                    Point point = new Point();
+//                    display.getSize(point);
+//
+//                    int width = point.x;
+//                    int height = point.y;
+//
+//                    int dimen = width < height ? width : height;
+//                    dimen = dimen * 3 / 4;
+//
+//                    qrgEncoder = new QRGEncoder(id.toString(), null, QRGContents.Type.TEXT, dimen);
+//                    try {
+//                        // getting our qrcode in the form of bitmap.
+//                        bitmap = qrgEncoder.encodeAsBitmap();
+//                        // the bitmap is set inside our image
+//                        // view using .setimagebitmap method.
+//                        qrCodeIV.setImageBitmap(bitmap);
+//                    } catch (WriterException e) {
+//                        // this method is called for
+//                        // exception handling.
+//                        Log.e("Tag", e.toString());
+//                    }
+//                }
+//            }
+//        });
     }
 
-    //TODO: get qr code
+    public void generateQR() {
+        ImageView qrCodeIV = findViewById(R.id.qrCodeImageView);
+        if (id == null) {
+            Toast.makeText(QRActivity.this, "Sorry, there was a problem generating the QR code.", Toast.LENGTH_LONG).show();
+        } else {
+            WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
+            Display display = manager.getDefaultDisplay();
+
+            Point point = new Point();
+            display.getSize(point);
+
+            int width = point.x;
+            int height = point.y;
+
+            int dimen = width < height ? width : height;
+            dimen = dimen * 3 / 4;
+
+            qrgEncoder = new QRGEncoder(id.toString(), null, QRGContents.Type.TEXT, dimen);
+            try {
+                // getting our qrcode in the form of bitmap.
+                bitmap = qrgEncoder.encodeAsBitmap();
+                // the bitmap is set inside our image
+                // view using .setimagebitmap method.
+                qrCodeIV.setImageBitmap(bitmap);
+            } catch (WriterException e) {
+                // this method is called for
+                // exception handling.
+                Log.e("Tag", e.toString());
+            }
+        }
+    }
 }

@@ -129,14 +129,14 @@ public class RegisterActivity extends AppCompatActivity {
                             Colector = "Ominus";
                             break;
                         default:
-                            Colector = "UNKNOWN";
+                            Colector = "Necunoscut";
                             break;
                     }
                 }
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Colector = "UNKNOWN";
+                Colector = "Necunoscut";
             }
         });
         findViewById(R.id.registerBtn).setOnClickListener(view -> registerUser());

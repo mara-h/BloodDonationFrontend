@@ -73,7 +73,7 @@ public class AdminDonorResultsActivity extends AppCompatActivity {
                 bloodGroup.setText("0-");
                 break;
             default:
-                bloodGroup.setText("UNKNOWN");
+                bloodGroup.setText("Necunscut");
                 break;
         }
         date.setText(Globals.currentQuestionnaire.getAdded_at());

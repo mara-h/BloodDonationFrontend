@@ -22,6 +22,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -37,7 +39,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DonorFormActivity extends AppCompatActivity {
-    int allQuestionsCount = 31;
+    int allQuestionsCount = 31; //change to 30
     int count = 1;
     Boolean isQuestionnaireValid = true;
     Boolean isGoodAnswerNo;
@@ -301,9 +303,19 @@ public class DonorFormActivity extends AppCompatActivity {
                     Globals.setCanGenerate(false);
                     Questionnaire crtQuestionnaire = response.body();
                     UUID id = crtQuestionnaire.getId();
+                    //
+//                    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+//                    Date date = new Date();
+//                    String time = formatter.format(date).toString();
+//                    crtQuestionnaire.setAdded_at(time);
+//                    System.out.println("time:" + time);
+//                System.out.println("setAddedAt:" + crtQuestionnaire.getAdded_at());
+//                    Log.e("time:", time);
+                    //
                     Globals.setCurrentQuestionnaire(crtQuestionnaire);
                     Intent intentQR = new Intent(DonorFormActivity.this, QRActivity.class);
                     intentQR.putExtra("id", id.toString());
+
                     startActivity(intentQR);
                 } else {
                     Toast.makeText(DonorFormActivity.this, "Problems encountered.", Toast.LENGTH_LONG).show();

@@ -41,6 +41,18 @@
         android:contentDescription="@string/qr_code"
         android:foregroundGravity="center" />
 
+    <Button
+        android:id="@+id/generateQRButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/qrCodeImageView"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/white"
+        android:hint="Salvați codul QR"
+        android:textColorHint="@color/black" />
+
 
 
 </RelativeLayout>

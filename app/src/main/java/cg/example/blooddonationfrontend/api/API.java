@@ -44,17 +44,16 @@ public interface API {
             @Path("id") String id
     );
 
-    //adauga eu
     @GET("appointments")
     Call<List<Appointment>> getAllAppointments();
 
     @GET("appointments/available")
     Call<List<String>> getAvailableHours();
 
-        @POST("appointments")
-         Call<Appointment> addAppointment(
+    @POST("appointments")
+    Call<Appointment> addAppointment(
             @Body Appointment appointment
-         );
+    );
 
 
 }

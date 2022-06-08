@@ -48,7 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/questionBody"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="300dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="80dp">
         <Button

@@ -57,6 +57,41 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/appointmentCardAdmin"
+                    android:layout_width="160dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:elevation="60dp"
+                    app:cardCornerRadius="12dp"
+                    android:backgroundTint="@color/white">
+
+                    <LinearLayout
+                        android:id="@+id/appointmentField"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/calendar" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Programările de astăzi"
+                            android:textAlignment="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/logoutCardAdmin"
                     android:layout_width="160dp"
@@ -89,7 +124,12 @@
                             android:textColor="@color/black"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+
+
             </LinearLayout>
+
+
         </LinearLayout>
     </LinearLayout>
 

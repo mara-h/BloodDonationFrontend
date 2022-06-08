@@ -14,9 +14,11 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,10 +65,10 @@ public class AppointmentActivity extends AppCompatActivity {
         makeAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String time ="h"+ itemHour.substring(0,2)+itemHour.substring(3,5);
+                String time = "h" + itemHour.substring(0, 2) + itemHour.substring(3, 5);
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 Date date = new Date();
-                String dateOfAppointment = formatter.format(date).toString();
+                String dateOfAppointment = formatter.format(date);
                 Appointment appointment = new Appointment();
 
                 appointment.setUser(Globals.currentUser.getId());
@@ -75,16 +77,15 @@ public class AppointmentActivity extends AppCompatActivity {
                 appointment.setHourOfAppointment(time);
 
                 addAppointment(appointment);
-
             }
         });
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AppointmentActivity.this, HomeActivity.class));
             }
         });
-
     }
 
     private void addAppointment(Appointment newAppointment) {
@@ -98,16 +99,9 @@ public class AppointmentActivity extends AppCompatActivity {
                 Boolean success;
                 success = response.isSuccessful();
                 int requestCode = response.code();
-                if(success) {
+                if (success) {
                     Appointment crtAppointment = response.body();
-//                    UUID id = crtAppointment.getId();
-//                    Intent intentAppointment = new Intent(AppointmentActivity.this, AppointmentViewActivity.class);
-//                    intentAppointment.putExtra("id", id.toString());
-
-                    //TODO: oare trebuie si un
                     Globals.setCurrentAppointment(crtAppointment);
-
-                    //startActivity(intentAppointment);
                     startActivity(new Intent(AppointmentActivity.this, AppointmentViewActivity.class));
                 } else {
                     Toast.makeText(AppointmentActivity.this, "Problems encountered.", Toast.LENGTH_LONG).show();
@@ -119,32 +113,25 @@ public class AppointmentActivity extends AppCompatActivity {
                 System.out.println("failure: " + t.getMessage());
             }
         });
-
     }
 
-    private void setSpinnerHours(List<String> hoursList){
+    private void setSpinnerHours(List<String> hoursList) {
         Spinner hourSpinner = findViewById(R.id.hourSpinner);
-
         ArrayAdapter<String> arrayAdapterHour = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, hoursList);
         arrayAdapterHour.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hourSpinner.setAdapter(arrayAdapterHour);
         hourSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                //TODO:
-
                 itemHour = adapterView.getItemAtPosition(position).toString();
-
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 //TODO:
+                Toast.makeText(AppointmentActivity.this, "Time not selected.", Toast.LENGTH_LONG).show();
             }
         });
     }
-
 
     private void getAvailableHours() {
         Call<List<String>> call = RetrofitClient
@@ -158,13 +145,105 @@ public class AppointmentActivity extends AppCompatActivity {
                 Boolean success;
                 success = response.isSuccessful();
                 int requestCode = response.code();
-                if(success) {
-                    List<String>  appointmentList= response.body();
-
-                    hoursList = appointmentList.stream().map(element -> element.toString().substring(1,3)+":"+element.toString().substring(3,5)).collect(Collectors.toList());
+                if (success) {
+                    List<String> appointmentList = response.body();
+                    hoursList = appointmentList.stream().map(element -> element.toString().substring(1, 3) + ":" + element.toString().substring(3, 5)).collect(Collectors.toList());
                     System.out.println(hoursList);
                     Log.e("lista de ore", hoursList.toString());
-                    setSpinnerHours(hoursList);
+
+                    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+                    Date date = new Date();
+                    String time = formatter.format(date);
+
+                    String hour = time.substring(0,2);
+                    String minute = time.substring(3,5);
+                    List<String> hoursList2 = new ArrayList<>();
+
+
+                    if(hour.equals("13") && minute.equals("00")) {
+                        hoursList2.add("13:00");
+                    } else if(hour.equals("12")) {
+                        if(minute.compareTo("30")>=0) {
+                            hoursList2.add("12:30");
+                            hoursList2.add("13:00");
+                        }
+                        if(minute.equals("00")) {
+                            hoursList2.add("12:00");
+                            hoursList2.add("12:30");
+                            hoursList2.add("13:00");
+                        }
+                    } else if(hour.equals("11")) {
+                        if(minute.compareTo("30")>=0) {
+                            hoursList2.add("11:30");
+                            hoursList2.add("12:00");
+                            hoursList2.add("12:30");
+                            hoursList2.add("13:00");
+                        }
+
+                        if(minute.equals("00")) {
+                            hoursList2.add("11:00");
+                            hoursList2.add("11:30");
+                            hoursList2.add("12:00");
+                            hoursList2.add("12:30");
+                            hoursList2.add("13:00");
+                        }
+                    } else if (hour.equals("10")) {
+                        if(minute.compareTo("30")>=0) {
+                            hoursList2.add("10:30");
+                            hoursList2.add("11:00");
+                            hoursList2.add("11:30");
+                            hoursList2.add("12:00");
+                            hoursList2.add("12:30");
+                            hoursList2.add("13:00");
+                        }
+                        if(minute.equals("00")) {
+                            hoursList2.add("10:00");
+                            hoursList2.add("10:30");
+                            hoursList2.add("11:00");
+                            hoursList2.add("11:30");
+                            hoursList2.add("12:00");
+                            hoursList2.add("12:30");
+                            hoursList2.add("13:00");
+                        }
+
+                    } else if (hour.equals("09")) {
+                        if(minute.compareTo("30")>=0) {
+                            hoursList2.add("09:30");
+                            hoursList2.add("10:00");
+                            hoursList2.add("10:30");
+                            hoursList2.add("11:00");
+                            hoursList2.add("11:30");
+                            hoursList2.add("12:00");
+                            hoursList2.add("12:30");
+                            hoursList2.add("13:00");
+                        }
+
+                        if(minute.equals("00")){
+                            hoursList2.add("09:00");
+                            hoursList2.add("09:30");
+                            hoursList2.add("10:00");
+                            hoursList2.add("10:30");
+                            hoursList2.add("11:00");
+                            hoursList2.add("11:30");
+                            hoursList2.add("12:00");
+                            hoursList2.add("12:30");
+                            hoursList2.add("13:00");
+                        }
+
+                    } else if (hour.equals("08")) {
+                        hoursList2.add("08:30");
+                        hoursList2.add("09:00");
+                        hoursList2.add("09:30");
+                        hoursList2.add("10:00");
+                        hoursList2.add("10:30");
+                        hoursList2.add("11:00");
+                        hoursList2.add("11:30");
+                        hoursList2.add("12:00");
+                        hoursList2.add("12:30");
+                        hoursList2.add("13:00");
+                    }
+
+                    setSpinnerHours(hoursList2);
                 } else {
                     Toast.makeText(AppointmentActivity.this, "Problems encountered.", Toast.LENGTH_LONG).show();
                 }
@@ -175,7 +254,6 @@ public class AppointmentActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
 

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,11 +22,9 @@ public class AdminHomeActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_admin_home);
 
-        //ImageButton scanQr = findViewById(R.id.scanQr);
-        //ImageButton logout = findViewById(R.id.logout);
-
         CardView qrScanCard = findViewById(R.id.qrScanCard);
         CardView logoutCard = findViewById(R.id.logoutCardAdmin);
+        CardView appointmentCard = findViewById(R.id.appointmentCardAdmin);
 
         qrScanCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +37,13 @@ public class AdminHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminHomeActivity.this, LoginActivity.class));
+            }
+        });
+
+        appointmentCard.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminHomeActivity.this, AdminAppointmentsActivity.class));
             }
         });
     }

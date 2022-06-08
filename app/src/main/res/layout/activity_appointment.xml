@@ -78,10 +78,18 @@
             android:layout_gravity="start"
             android:layout_marginTop="200dp"
             android:layout_weight="1"
-            android:background="@drawable/emailimg"
+            android:background="@drawable/spinner_appointment"
             android:hint="@string/_8"
-            android:spinnerMode="dropdown" />
+            android:soundEffectsEnabled="true"
+            android:splitMotionEvents="true"
+            android:drawSelectorOnTop="true"
+            android:dropDownSelector="@drawable/emailimg"
+            android:spinnerMode="dropdown"
+            android:text="@string/select_blood_group"
+            android:textColor="@color/white"
+            android:visibility="visible" />
 
+       </LinearLayout>
 
 
     </LinearLayout>
@@ -101,4 +109,3 @@
         android:textColor="@color/white" />
 
     </LinearLayout>
-</LinearLayout>

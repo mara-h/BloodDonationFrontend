@@ -55,7 +55,7 @@
         android:backgroundTint="@color/white"
         android:gravity="center"
         android:layout_centerInParent="true"
-        android:text="Completeaza chestionarul"
+        android:text="Completează chestionarul"
         android:textColor="@color/black"
 
 

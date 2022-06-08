@@ -7,7 +7,7 @@
     android:fadeScrollbars="false"
     android:fadingEdge="vertical"
     android:orientation="vertical"
-    android:background="@drawable/gradient_drawable"
+    android:background="@drawable/gradient_drawable2"
     android:alpha="0.9"
     tools:context="cg.example.blooddonationfrontend.view.DonorFormActivity">
 
@@ -38,10 +38,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Ne pare rau. Nu sunteti eligibil pentru a dona sange."
-        android:textSize="20dp"
+        android:layout_marginRight="50dp"
+        android:fitsSystemWindows="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Ne pare rău. Nu sunteți eligibil pentru a dona sânge. Încercați in nou în altă zi. "
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <Button

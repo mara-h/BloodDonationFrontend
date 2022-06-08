@@ -38,7 +38,7 @@ public class AppointmentViewActivity extends AppCompatActivity {
         try {
             Date d = sdf.parse(day);
             sdf.applyPattern("dd.MM.yyyy");
-             dayToDisplay = sdf.format(d);
+            dayToDisplay = sdf.format(d);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -46,18 +46,14 @@ public class AppointmentViewActivity extends AppCompatActivity {
 
         hour = Globals.currentAppointment.getHourOfAppointment();
 
-        String hourToDisplay = hour.substring(1,3)+":"+hour.substring(3,5);
+        String hourToDisplay = hour.substring(1, 3) + ":" + hour.substring(3, 5);
 
-        appointmentTime.setText(dayToDisplay+", ora "+hourToDisplay);
+        appointmentTime.setText(dayToDisplay + ", ora " + hourToDisplay);
 
-       // appointmentTime.setText(day);
-
+        // appointmentTime.setText(day);
 
 
     }
-
-
-
 
 
 }

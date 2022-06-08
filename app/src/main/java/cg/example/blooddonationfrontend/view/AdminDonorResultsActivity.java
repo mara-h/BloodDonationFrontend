@@ -2,6 +2,7 @@ package cg.example.blooddonationfrontend.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,6 +20,7 @@ import cg.example.blooddonationfrontend.R;
 import cg.example.blooddonationfrontend.model.Globals;
 
 public class AdminDonorResultsActivity extends AppCompatActivity {
+    TextView date;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class AdminDonorResultsActivity extends AppCompatActivity {
         TextView cnp = findViewById(R.id.questionnaireCnpInput);
         TextView sex = findViewById(R.id.questionnaireSexInput);
         TextView bloodGroup = findViewById(R.id.questionnaireBloodGroupInput);
-        TextView date = findViewById(R.id.questionnaireValid);
+        date = findViewById(R.id.questionnaireValid);
 
         name.setText(Globals.questionnaireUser.getFirstName() + " " + Globals.questionnaireUser.getLastName());
         age.setText(Globals.questionnaireUser.getAge());
@@ -76,8 +78,11 @@ public class AdminDonorResultsActivity extends AppCompatActivity {
                 bloodGroup.setText("Necunscut");
                 break;
         }
-        date.setText(Globals.currentQuestionnaire.getAdded_at());
 
+        //date.setText(Globals.currentQuestionnaire.getAdded_at());
+        //Log.e("added at: ", Globals.currentQuestionnaire.getAdded_at());
+
+        changeHour();
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,5 +90,116 @@ public class AdminDonorResultsActivity extends AppCompatActivity {
                 startActivity(new Intent(AdminDonorResultsActivity.this, AdminHomeActivity.class));
             }
         });
+    }
+
+    public void changeHour() {
+        String qDate = Globals.currentQuestionnaire.getAdded_at();
+        String hour = qDate.substring(0,2);
+        String minute = qDate.substring(3,5);
+        String setDate = "";
+        Log.e("hour", hour);
+
+        if(hour.equals("00")) {
+            hour = "03";
+            setDate = hour + ":" + minute;
+        }
+         else if(hour.equals("01")) {
+            hour = "04";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("02")) {
+            hour = "05";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("03")) {
+            hour = "06";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("04")) {
+            hour = "07";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("05")) {
+            hour = "08";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("06")) {
+            hour = "09";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("07")) {
+            hour = "10";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("08")) {
+            hour = "11";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("09")) {
+            hour = "12";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("10")) {
+            hour = "13";
+            Log.e("hour in if1", hour);
+            setDate = hour + ":" + minute;
+            Log.e("setDate: ", setDate);
+        }
+        else if(hour.equals("11")) {
+            hour = "14";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("12")) {
+            hour = "15";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("13")) {
+            hour = "16";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("14")) {
+            hour = "17";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("15")) {
+            hour = "18";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("16")) {
+            hour = "19";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("17")) {
+            hour = "20";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("18")) {
+            hour = "21";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("19")) {
+            hour = "22";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("20")) {
+            hour = "23";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("21")) {
+            hour = "00";
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("22")) {
+            hour = "01";
+            Log.e("hour in if2", hour);
+            setDate = hour + ":" + minute;
+        }
+        else if(hour.equals("23")) {
+            hour = "02";
+            Log.e("hour in if3", hour);
+            setDate = hour + ":" + minute;
+        }
+
+        date.setText(setDate);
     }
 }

@@ -241,6 +241,8 @@ public class AppointmentActivity extends AppCompatActivity {
                         hoursList2.add("12:00");
                         hoursList2.add("12:30");
                         hoursList2.add("13:00");
+                    } else {
+                        Toast.makeText(AppointmentActivity.this, "Nu mai sunt locuri disponibile astăzi. Încercați din nou mâine.", Toast.LENGTH_LONG).show();
                     }
 
                     setSpinnerHours(hoursList2);

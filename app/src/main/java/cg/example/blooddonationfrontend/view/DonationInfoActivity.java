@@ -45,16 +45,4 @@ public class DonationInfoActivity extends AppCompatActivity {
         });
 
     }
-
-
-//    @Override
-//    public void onBackPressed() {
-//        if(viewPager.getCurrentItem() ==0) {
-//            super.onBackPressed();
-//        } else {
-//            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
-//        }
-//    }
-
-
 }

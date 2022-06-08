@@ -104,7 +104,7 @@ public class AppointmentActivity extends AppCompatActivity {
                     Globals.setCurrentAppointment(crtAppointment);
                     startActivity(new Intent(AppointmentActivity.this, AppointmentViewActivity.class));
                 } else {
-                    Toast.makeText(AppointmentActivity.this, "Problems encountered.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AppointmentActivity.this, "Probleme întâmpinate.", Toast.LENGTH_LONG).show();
                 }
             }
             @Override
@@ -128,7 +128,7 @@ public class AppointmentActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 //TODO:
-                Toast.makeText(AppointmentActivity.this, "Time not selected.", Toast.LENGTH_LONG).show();
+                Toast.makeText(AppointmentActivity.this, "Nu a fost selectată ora. .", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -245,7 +245,7 @@ public class AppointmentActivity extends AppCompatActivity {
 
                     setSpinnerHours(hoursList2);
                 } else {
-                    Toast.makeText(AppointmentActivity.this, "Problems encountered.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AppointmentActivity.this, "Probleme întâmpinate.", Toast.LENGTH_LONG).show();
                 }
             }
             public void onFailure(Call<List<String>> call, Throwable t) {

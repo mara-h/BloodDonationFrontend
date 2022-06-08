@@ -102,7 +102,7 @@ public class CameraActivity extends AppCompatActivity {
                     getUserData(userId.toString());
 
                 } else {
-                    Toast.makeText(CameraActivity.this, "Error getting questionnaire.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CameraActivity.this, "Eroare la obținerea chestionarului.", Toast.LENGTH_LONG).show();
                 }
             }
             public void onFailure(Call<Questionnaire> call, Throwable t) {
@@ -129,7 +129,7 @@ public class CameraActivity extends AppCompatActivity {
                     Globals.setQuestionnaireUser(questionnaireUser);
                     startActivity(new Intent(CameraActivity.this, AdminDonorResultsActivity.class));
                 } else {
-                    Toast.makeText(CameraActivity.this, "Error getting questionnaire data.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CameraActivity.this, "Error la obținerea datelor din chestioanr.", Toast.LENGTH_LONG).show();
                 }
 
             }

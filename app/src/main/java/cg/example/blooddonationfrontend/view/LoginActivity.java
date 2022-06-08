@@ -68,13 +68,13 @@ public class LoginActivity extends AppCompatActivity {
         boolean errorFlag = false;
 
         if(email.isEmpty()) {
-            emailText.setError("Email required");
+            emailText.setError("Introduceți o adresă de email.");
             emailText.requestFocus();
             errorFlag = true;
         }
 
         if(password.isEmpty()) {
-            passwordText.setError("Password required");
+            passwordText.setError("Introduceți parola.");
             passwordText.requestFocus();
             errorFlag = true;
         }
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                     User crtUser = response.body();
                     Globals.setCurrentUser(crtUser);
                     Globals.setCanGenerate(true);
-                    if(crtUser.getEmail().equals("doctor@doctor.com")) {
+                    if(crtUser.getEmail().equals("doctor@lifeshare.com")) {
                         startActivity(new Intent(LoginActivity.this, AdminHomeActivity.class));
                     } else {
                         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_LONG).show();
                         }
                         else
-                            Toast.makeText(LoginActivity.this, "Authentication error. Email or password does not exist.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Probleme la autentificate. Email-ul sau parola nu există.", Toast.LENGTH_LONG).show();
                     }
                 }
             }

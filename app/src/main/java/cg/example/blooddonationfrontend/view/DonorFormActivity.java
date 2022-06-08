@@ -39,7 +39,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DonorFormActivity extends AppCompatActivity {
-    int allQuestionsCount = 31; //change to 30
+    int allQuestionsCount = 30; //change to 30
     int count = 1;
     Boolean isQuestionnaireValid = true;
     Boolean isGoodAnswerNo;
@@ -67,7 +67,7 @@ public class DonorFormActivity extends AppCompatActivity {
         choiceText.setVisibility(View.INVISIBLE);
 
         if (Globals.allQuestions == null) {
-            Toast.makeText(DonorFormActivity.this, "No questions available.", Toast.LENGTH_LONG).show();
+            Toast.makeText(DonorFormActivity.this, "Întrebările nu sunt disponibile.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(DonorFormActivity.this, HomeActivity.class));
         }
 
@@ -173,7 +173,6 @@ public class DonorFormActivity extends AppCompatActivity {
                             setNextQuestion();
                             break;
                         case 3:
-                            //TODO: call pt chestionar
                             Questionnaire questionnaire = new Questionnaire();
                             questionnaire.setUserId(Globals.currentUser.getId());
                             questionnaire.setValid(true);
@@ -248,7 +247,7 @@ public class DonorFormActivity extends AppCompatActivity {
 
         Question question = Globals.allQuestions.stream().filter(q -> count == q.getQuestionOrder()).findAny().orElse(null);
         if (question == null) {
-            Toast.makeText(DonorFormActivity.this, "No questions available.", Toast.LENGTH_LONG).show();
+            Toast.makeText(DonorFormActivity.this, "întrebările nu sunt disponibile.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(DonorFormActivity.this, HomeActivity.class));
         }
 
@@ -318,7 +317,7 @@ public class DonorFormActivity extends AppCompatActivity {
 
                     startActivity(intentQR);
                 } else {
-                    Toast.makeText(DonorFormActivity.this, "Problems encountered.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(DonorFormActivity.this, "Probleme întâmpinate.", Toast.LENGTH_LONG).show();
                 }
 
             }

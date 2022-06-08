@@ -166,7 +166,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         for (EditText field : inputs.keySet()) {
             if (inputs.get(field).isEmpty()) {
-                inputValidator.setFieldError(field, "This field cannot be empty");
+                inputValidator.setFieldError(field, "Acest câmp nu poate fi gol.");
                 isError = true;
             }
         }
@@ -213,11 +213,11 @@ public class RegisterActivity extends AppCompatActivity {
                 success = response.isSuccessful();
                 int requestCode = response.code();
                 if (success) {
-                    Toast.makeText(RegisterActivity.this, "Registered successfully. Please log in", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Înregistrare realizată cu succes. Vă rugăm să va autentificați.", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 } else {
                     if (requestCode == 400)
-                        Toast.makeText(RegisterActivity.this, "Username or email is taken!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegisterActivity.this, "Utilizatorul sau parola există deja.", Toast.LENGTH_LONG).show();
                     else
                         Toast.makeText(RegisterActivity.this, "Server Error", Toast.LENGTH_LONG).show();
                 }

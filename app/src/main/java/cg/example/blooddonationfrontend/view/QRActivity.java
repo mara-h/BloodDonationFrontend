@@ -131,7 +131,7 @@ public class QRActivity extends AppCompatActivity {
     public void generateQR() {
         ImageView qrCodeIV = findViewById(R.id.qrCodeImageView);
         if (id == null) {
-            Toast.makeText(QRActivity.this, "Sorry, there was a problem generating the QR code.", Toast.LENGTH_LONG).show();
+            Toast.makeText(QRActivity.this, "Ne pare rău, a apărut o problemă cu generarea codului QR.", Toast.LENGTH_LONG).show();
         } else {
             WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
             Display display = manager.getDefaultDisplay();

@@ -86,7 +86,7 @@ public class AdminAppointmentsActivity extends AppCompatActivity {
                     Log.e("lista de ore", hoursList.toString());
                     setHours(hoursList);
                 } else {
-                    Toast.makeText(AdminAppointmentsActivity.this, "Problems encountered.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AdminAppointmentsActivity.this, "Probleme întâmpinate.", Toast.LENGTH_LONG).show();
                 }
             }
 

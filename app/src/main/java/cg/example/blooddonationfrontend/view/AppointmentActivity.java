@@ -159,16 +159,15 @@ public class AppointmentActivity extends AppCompatActivity {
                     String minute = time.substring(3,5);
                     List<String> hoursList2 = new ArrayList<>();
 
-
                     if(hour.equals("13") && minute.equals("00")) {
                         hoursList2.add("13:00");
                     } else if(hour.equals("12")) {
                         if(minute.compareTo("30")>=0) {
-                            hoursList2.add("12:30");
+                            //hoursList2.add("12:30");
                             hoursList2.add("13:00");
-                        }
-                        if(minute.equals("00")) {
-                            hoursList2.add("12:00");
+                        } else
+                        if(minute.compareTo("30")<0) {
+                            hoursList2.add("12:30");
                             hoursList2.add("12:30");
                             hoursList2.add("13:00");
                         }
@@ -178,9 +177,7 @@ public class AppointmentActivity extends AppCompatActivity {
                             hoursList2.add("12:00");
                             hoursList2.add("12:30");
                             hoursList2.add("13:00");
-                        }
-
-                        if(minute.equals("00")) {
+                        } else if(minute.compareTo("30")<0) {
                             hoursList2.add("11:00");
                             hoursList2.add("11:30");
                             hoursList2.add("12:00");
@@ -195,8 +192,8 @@ public class AppointmentActivity extends AppCompatActivity {
                             hoursList2.add("12:00");
                             hoursList2.add("12:30");
                             hoursList2.add("13:00");
-                        }
-                        if(minute.equals("00")) {
+                        } else
+                        if(minute.compareTo("30")<0) {
                             hoursList2.add("10:00");
                             hoursList2.add("10:30");
                             hoursList2.add("11:00");
@@ -216,9 +213,8 @@ public class AppointmentActivity extends AppCompatActivity {
                             hoursList2.add("12:00");
                             hoursList2.add("12:30");
                             hoursList2.add("13:00");
-                        }
-
-                        if(minute.equals("00")){
+                        } else
+                        if(minute.compareTo("30")<0){
                             hoursList2.add("09:00");
                             hoursList2.add("09:30");
                             hoursList2.add("10:00");
@@ -229,18 +225,19 @@ public class AppointmentActivity extends AppCompatActivity {
                             hoursList2.add("12:30");
                             hoursList2.add("13:00");
                         }
-
                     } else if (hour.equals("08")) {
-                        hoursList2.add("08:30");
-                        hoursList2.add("09:00");
-                        hoursList2.add("09:30");
-                        hoursList2.add("10:00");
-                        hoursList2.add("10:30");
-                        hoursList2.add("11:00");
-                        hoursList2.add("11:30");
-                        hoursList2.add("12:00");
-                        hoursList2.add("12:30");
-                        hoursList2.add("13:00");
+                        if(minute.compareTo("30")>=0) {
+                            hoursList2.add("08:30");
+                            hoursList2.add("09:00");
+                            hoursList2.add("09:30");
+                            hoursList2.add("10:00");
+                            hoursList2.add("10:30");
+                            hoursList2.add("11:00");
+                            hoursList2.add("11:30");
+                            hoursList2.add("12:00");
+                            hoursList2.add("12:30");
+                            hoursList2.add("13:00");
+                        }
                     } else {
                         Toast.makeText(AppointmentActivity.this, "Nu mai sunt locuri disponibile astăzi. Încercați din nou mâine.", Toast.LENGTH_LONG).show();
                     }

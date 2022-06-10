@@ -3,7 +3,6 @@ package cg.example.blooddonationfrontend.view;
 import static cg.example.blooddonationfrontend.model.Enums.AnswerType.bool;
 
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,11 +19,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 import cg.example.blooddonationfrontend.R;
@@ -33,17 +27,17 @@ import cg.example.blooddonationfrontend.model.Enums;
 import cg.example.blooddonationfrontend.model.Globals;
 import cg.example.blooddonationfrontend.model.Question;
 import cg.example.blooddonationfrontend.model.Questionnaire;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DonorFormActivity extends AppCompatActivity {
-    int allQuestionsCount = 30; //change to 30
+    int allQuestionsCount = 30;
     int count = 1;
     Boolean isQuestionnaireValid = true;
     Boolean isGoodAnswerNo;
     Boolean boolQuestion;
+    TextView choiceText;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -63,7 +57,7 @@ public class DonorFormActivity extends AppCompatActivity {
         Button yesButton = findViewById(R.id.YesButton);
         Button noButton = findViewById(R.id.noButton);
         TextView questionBody = findViewById(R.id.questionBody);
-        TextView choiceText = findViewById(R.id.choiceText);
+        choiceText = findViewById(R.id.choiceText);
         choiceText.setVisibility(View.INVISIBLE);
 
         if (Globals.allQuestions == null) {
@@ -98,7 +92,7 @@ public class DonorFormActivity extends AppCompatActivity {
         cupButtonOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                choiceText.setText("1-2 cups");
+                choiceText.setText("1-2 pahare");
                 cupButtonOne.setBackgroundColor(cupButtonOne.getContext().getResources().getColor(R.color.black));
                 cupButtonOne.setTextColor(cupButtonOne.getContext().getResources().getColor(R.color.white));
                 cupButtonTwo.setBackgroundColor(cupButtonTwo.getContext().getResources().getColor(R.color.white));
@@ -111,8 +105,7 @@ public class DonorFormActivity extends AppCompatActivity {
         cupButtonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                choiceText.setText("3-5 cups");
-                choiceText.setText("1-2 cups");
+                choiceText.setText("3-5 pahare");
                 cupButtonOne.setBackgroundColor(cupButtonOne.getContext().getResources().getColor(R.color.white));
                 cupButtonOne.setTextColor(cupButtonOne.getContext().getResources().getColor(R.color.black));
                 cupButtonTwo.setBackgroundColor(cupButtonTwo.getContext().getResources().getColor(R.color.black));
@@ -125,8 +118,7 @@ public class DonorFormActivity extends AppCompatActivity {
         cupButtonThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                choiceText.setText(">5 cups");
-                choiceText.setText("1-2 cups");
+                choiceText.setText(" > 5 pahare");
                 cupButtonOne.setBackgroundColor(cupButtonOne.getContext().getResources().getColor(R.color.white));
                 cupButtonOne.setTextColor(cupButtonOne.getContext().getResources().getColor(R.color.black));
                 cupButtonTwo.setBackgroundColor(cupButtonTwo.getContext().getResources().getColor(R.color.white));
@@ -152,11 +144,22 @@ public class DonorFormActivity extends AppCompatActivity {
                 noButton.setBackgroundColor(noButton.getContext().getResources().getColor(R.color.white));
                 noButton.setTextColor(noButton.getContext().getResources().getColor(R.color.black));
                 if (count == allQuestionsCount) {
-                    //TODO: generate and save questionnaire
-                    Questionnaire questionnaire = new Questionnaire();
-                    questionnaire.setUserId(Globals.currentUser.getId());
-                    questionnaire.setValid(true);
-                    saveQuestionnaire(questionnaire);
+                    int alcohol = verifyAlcohol();
+                    switch (alcohol) {
+                        case 0:
+                            Globals.setCanGenerate(false);
+                            choiceText.setText("");
+                            startActivity(new Intent(DonorFormActivity.this, InvalidQuestionnaireActivity.class));
+                            break;
+                        case 3:
+                            Questionnaire questionnaire = new Questionnaire();
+                            questionnaire.setUserId(Globals.currentUser.getId());
+                            questionnaire.setValid(true);
+                            saveQuestionnaire(questionnaire);
+                            break;
+                        default:
+                            break;
+                    }
                 } else {
                     count++;
 
@@ -168,7 +171,6 @@ public class DonorFormActivity extends AppCompatActivity {
                             startActivity(new Intent(DonorFormActivity.this, InvalidQuestionnaireActivity.class));
                             break;
                         case 1:
-
                             choiceText.setText("");
                             setNextQuestion();
                             break;
@@ -181,6 +183,7 @@ public class DonorFormActivity extends AppCompatActivity {
                         default:
                             break;
                     }
+
                 }
             }
         });
@@ -192,17 +195,8 @@ public class DonorFormActivity extends AppCompatActivity {
     //2 = nu a dat raspuns inca
     // 3 = nu a consumat alcool
     private int verifyAnswer() {
-        ImageButton backButton = findViewById(R.id.back_button);
-        ImageButton nextButton = findViewById(R.id.next_button);
-        Button cupButtonOne = findViewById(R.id.CupButtonONE);
-        Button cupButtonTwo = findViewById(R.id.CupButtonTWO);
-        Button cupButtonThree = findViewById(R.id.CupButtonTHREE);
-        Button yesButton = findViewById(R.id.YesButton);
-        Button noButton = findViewById(R.id.noButton);
-        TextView questionBody = findViewById(R.id.questionBody);
-        TextView choiceText = findViewById(R.id.choiceText);
-
         String gender = Globals.currentUser.getSex();
+
         if (choiceText.getText().equals(""))
             return 2;
 
@@ -220,16 +214,22 @@ public class DonorFormActivity extends AppCompatActivity {
             if (boolQuestion) {
                 if (choiceText.getText().equals("NO"))
                     return 0;
-            } else {
-                if (choiceText.getText().equals(">5 cups"))
-                    return 0;
-                if (gender.toString().equals("female")) {
-                    if (choiceText.getText().equals("3-5 cups"))
-                        return 0;
-                }
             }
         }
         return 1;
+    }
+
+
+    private int verifyAlcohol() {
+        String gender = Globals.currentUser.getSex();
+        if (choiceText.getText().equals(" > 5 pahare")) {
+            return 0;
+        }
+        if (gender.equals("female") || gender.equals("feminin")) {
+            if (choiceText.getText().equals("3-5 pahare"))
+                return 0;
+        }
+        return 3;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -298,19 +298,10 @@ public class DonorFormActivity extends AppCompatActivity {
                 success = response.isSuccessful();
                 int requestCode = response.code();
 
-                if(success) {
+                if (success) {
                     Globals.setCanGenerate(false);
                     Questionnaire crtQuestionnaire = response.body();
                     UUID id = crtQuestionnaire.getId();
-                    //
-//                    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-//                    Date date = new Date();
-//                    String time = formatter.format(date).toString();
-//                    crtQuestionnaire.setAdded_at(time);
-//                    System.out.println("time:" + time);
-//                System.out.println("setAddedAt:" + crtQuestionnaire.getAdded_at());
-//                    Log.e("time:", time);
-                    //
                     Globals.setCurrentQuestionnaire(crtQuestionnaire);
                     Intent intentQR = new Intent(DonorFormActivity.this, QRActivity.class);
                     intentQR.putExtra("id", id.toString());
@@ -319,7 +310,6 @@ public class DonorFormActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(DonorFormActivity.this, "Probleme întâmpinate.", Toast.LENGTH_LONG).show();
                 }
-
             }
 
             public void onFailure(Call<Questionnaire> call, Throwable t) {
@@ -329,5 +319,3 @@ public class DonorFormActivity extends AppCompatActivity {
         });
     }
 }
-
-

@@ -38,6 +38,7 @@ public class DonorFormActivity extends AppCompatActivity {
     Boolean isGoodAnswerNo;
     Boolean boolQuestion;
     TextView choiceText;
+    String gender = Globals.currentUser.getSex();
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -163,6 +164,9 @@ public class DonorFormActivity extends AppCompatActivity {
                 } else {
                     count++;
 
+                    if(gender.equals("male") && count==28)
+                        count++;
+
                     int response = verifyAnswer();
                     switch (response) {
                         case 0:
@@ -195,7 +199,7 @@ public class DonorFormActivity extends AppCompatActivity {
     //2 = nu a dat raspuns inca
     // 3 = nu a consumat alcool
     private int verifyAnswer() {
-        String gender = Globals.currentUser.getSex();
+
 
         if (choiceText.getText().equals(""))
             return 2;
@@ -221,7 +225,6 @@ public class DonorFormActivity extends AppCompatActivity {
 
 
     private int verifyAlcohol() {
-        String gender = Globals.currentUser.getSex();
         if (choiceText.getText().equals(" > 5 pahare")) {
             return 0;
         }
